@@ -6,7 +6,7 @@ export default function Navbar() {
     <Container>
       <div className="glass-container p-6 rounded-lg shadow-lg flex items-center justify-between w-full max-w-full">
         <div className="flex items-center space-x-4">
-          <span className="text-3xl font-bold text-green-300 font-serif underline">
+          <span className="text-2xl md:text-3xl font-bold text-green-300 font-serif underline">
             Memorize
           </span>
         </div>
@@ -41,7 +41,7 @@ export default function Navbar() {
               strokeLinejoin="round"
             />
           </svg>
-          <span>Add New</span>
+          <span className="hidden md:block">Add New</span>
         </button>
       </div>
     </Container>

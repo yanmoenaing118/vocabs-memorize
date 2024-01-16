@@ -9,7 +9,8 @@ export default function SuffleBar({
   onSuffle,
 }: any) {
   return (
-    <Container>
+    <div className="sticky top-0">
+      <Container>
       <div className="flex justify-between align-middle">
         <div className="flex gap-3 items-center">
           {/* <Checkbox onCheck={showAll}/> */}
@@ -34,6 +35,7 @@ export default function SuffleBar({
         </div>
       </div>
     </Container>
+    </div>
   );
 }
 
