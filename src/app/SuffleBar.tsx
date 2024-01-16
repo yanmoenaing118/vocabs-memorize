@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import ShuffleButton from "./ShuffleButton";
 import Container from "./Container";
 
-export default function SuffleBar({ onSuffle }: any) {
+export default function SuffleBar({
+  toggleMeaning,
+  toggleWord,
+  showAll,
+  onSuffle,
+}: any) {
   return (
     <Container>
       <div className="flex justify-between align-middle">
         <div className="flex gap-3 items-center">
-          <Checkbox />
-          <ToggleLang lang="jp" />
-          <ToggleLang lang="mm" />
+          {/* <Checkbox onCheck={showAll}/> */}
+          <ToggleLang lang="jp" onToggle={toggleWord} />
+          <ToggleLang lang="mm" onToggle={toggleMeaning} />
         </div>
         <div>
           <button onClick={onSuffle}>
@@ -32,20 +37,21 @@ export default function SuffleBar({ onSuffle }: any) {
   );
 }
 
-const ToggleLang = ({ lang }: any) => {
+const ToggleLang = ({ lang, onToggle }: any) => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <ToggleButton />
+      <ToggleButton onToggle={onToggle} />
       <span className="text-white bold uppercase">{lang}</span>
     </div>
   );
 };
 
-const ToggleButton = () => {
+const ToggleButton = ({ onToggle }: any) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleButton = () => {
     setIsActive(!isActive);
+    onToggle();
   };
 
   return (
@@ -64,11 +70,12 @@ const ToggleButton = () => {
   );
 };
 
-const Checkbox = () => {
+const Checkbox = ({ onCheck }: any) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+    onCheck(isChecked);
   };
 
   return (

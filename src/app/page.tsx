@@ -3,7 +3,7 @@ import VocabList, { Vocabs } from "./VocabList";
 import Navbar from "./Navbar";
 import SuffleBar from "./SuffleBar";
 import { useState } from "react";
-import _, { flatMap } from "lodash";
+import _, { flatMap, words } from "lodash";
 
 const list: Vocabs = [
   {
@@ -56,10 +56,33 @@ export default function Home() {
   }
 
 
+const toggleMeaning = () => {
+  setVocabs(vocabs.map(voc => ({
+    ...voc,
+    hideMeaning: !voc.hideMeaning
+  })))
+}
+
+const toggleWord = () => {
+  setVocabs(vocabs.map(voc => ({
+    ...voc,
+    hideWord: !voc.hideWord
+  })))
+}
+
+const showAll = (isChecked: boolean) => {
+  setVocabs(vocabs.map(voc => ({
+    ...voc,
+    hideMeaning: isChecked,
+    hideWord: isChecked
+  })))
+}
+
+
   return (
     <main>
       <Navbar />
-      <SuffleBar onSuffle={shuffleList} />
+      <SuffleBar showAll={showAll} toggleMeaning={toggleMeaning} toggleWord={toggleWord} onSuffle={shuffleList} />
       <VocabList list={vocabs}/>
     </main>
   );
