@@ -4,8 +4,8 @@ import Container from "./Container";
 type Vocab = {
   word: string;
   meaning: string;
-  hideWord: boolean,
-  hideMeaning: boolean
+  hideWord?: boolean,
+  hideMeaning?: boolean
 };
 
 export type Vocabs = Vocab[];
@@ -20,7 +20,7 @@ export default function VocabList({ list }: VocabListProps) {
       <div className="grid grid-cols-3 gap-4">
         {list.map((item) => (
           <div key={item.word} className="glass-card bg-white bg-opacity-20 p-8 rounded-lg shadow-lg">
-            <h1 className="text-2xl font-bold mb-4 text-white">
+            <h1 className="text-2xl font-light mb-4 text-black">
               {!item.hideWord && item.word}
             </h1>
             <p className="text-gray-200">
