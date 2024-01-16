@@ -17,7 +17,7 @@ type VocabListProps = {
 export default function VocabList({ list }: VocabListProps) {
   return (
     <Container>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {list.map((item) => (
           <div key={item.word} className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg">
             <h1 className="text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black">
