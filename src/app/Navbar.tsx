@@ -1,0 +1,49 @@
+import React from "react";
+import Container from "./Container";
+
+export default function Navbar() {
+  return (
+    <Container>
+      <div className="glass-container p-6 rounded-lg shadow-lg flex items-center justify-between w-full max-w-full">
+        <div className="flex items-center space-x-4">
+          <span className="text-3xl font-bold text-green-300 font-serif underline">
+            Memorize
+          </span>
+        </div>
+
+        <button className="border text-white px-4 py-2 rounded-md flex items-center gap-2">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30Z"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10 16H22"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M16 10V22"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span>Add New</span>
+        </button>
+      </div>
+    </Container>
+  );
+}
