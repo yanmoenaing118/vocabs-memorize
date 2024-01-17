@@ -7,16 +7,18 @@ export default function SuffleBar({
   toggleWord,
   showAll,
   onSuffle,
+  onSelect,
+  active,
 }: any) {
   return (
-    <div className="sticky top-0">
-      <Container>
-      <div className="flex justify-between align-middle">
+    <div className="sticky top-4">
+      <div className="flex flex-col justify-between gap-7">
         <div className="flex gap-3 items-center">
           {/* <Checkbox onCheck={showAll}/> */}
           <ToggleLang lang="jp" onToggle={toggleWord} />
           <ToggleLang lang="mm" onToggle={toggleMeaning} />
         </div>
+        <Chapters active={active} onSelect={onSelect} />
         <div>
           <button onClick={onSuffle}>
             <svg
@@ -34,10 +36,31 @@ export default function SuffleBar({
           </button>
         </div>
       </div>
-    </Container>
     </div>
   );
 }
+
+const Chapters = ({ active, onSelect }: any) => {
+  return (
+    <div>
+      <div className="text-white underline mb-1">Chapters</div>
+      <div className="grid grid-cols-4 justify-items-start gap-3 text-white">
+        {new Array(8)
+          .fill(0)
+          .map((_, i) => i + 1)
+          .map((_, i) => (
+            <button
+              onClick={() => onSelect(_)}
+              key={_}
+              className={active === _ ? "text-gray-700" : "text-white"}
+            >
+              {_}
+            </button>
+          ))}
+      </div>
+    </div>
+  );
+};
 
 const ToggleLang = ({ lang, onToggle }: any) => {
   return (

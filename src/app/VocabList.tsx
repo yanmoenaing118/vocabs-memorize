@@ -6,7 +6,8 @@ type Vocab = {
   meaning: string;
   hideWord?: boolean,
   hideMeaning?: boolean,
-  conversation?: boolean
+  conversation?: boolean,
+  ch: number
 };
 
 export type Vocabs = Vocab[];
@@ -17,7 +18,7 @@ type VocabListProps = {
 
 export default function VocabList({ list }: VocabListProps) {
   return (
-    <Container>
+    <>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {list.map((item) => (
           <div key={item.word} className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg">
@@ -30,6 +31,6 @@ export default function VocabList({ list }: VocabListProps) {
           </div>
         ))}
       </div>
-    </Container>
+    </>
   );
 }
