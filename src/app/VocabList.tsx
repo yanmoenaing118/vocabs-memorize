@@ -5,7 +5,8 @@ type Vocab = {
   word: string;
   meaning: string;
   hideWord?: boolean,
-  hideMeaning?: boolean
+  hideMeaning?: boolean,
+  conversation?: boolean
 };
 
 export type Vocabs = Vocab[];
