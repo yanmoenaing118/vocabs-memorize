@@ -3,7 +3,7 @@ import VocabList, { Vocabs } from "./VocabList";
 import Navbar from "./Navbar";
 import SuffleBar from "./SuffleBar";
 import { useState } from "react";
-import _, { flatMap, words } from "lodash";
+import _ from "lodash";
 
 const list: Vocabs = [
   {
