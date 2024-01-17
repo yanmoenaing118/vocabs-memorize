@@ -244,6 +244,15 @@ const list: Vocabs = [
     meaning: "စပိန်",
     ch: 7,
   },
+  {
+    word: "スペイン",
+    meaning: "စပိန်",
+    ch: 8,
+  },
 ];
 
-export default list
+const getListByCh = (ch: number) => {
+    return list.filter(item => item.ch === ch)
+}
+
+export default  list;
