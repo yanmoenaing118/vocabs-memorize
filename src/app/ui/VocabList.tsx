@@ -1,5 +1,7 @@
 import React from "react";
 import Container from "./Container";
+import { PropVocabSearchQuery } from "../lib/definitions";
+import { getVocabList } from "../lib/data";
 
 type Vocab = {
   word: string;
@@ -16,7 +18,8 @@ type VocabListProps = {
   list: Vocabs;
 };
 
-export default function VocabList({ list }: VocabListProps) {
+export default function VocabList({ query }: { query: PropVocabSearchQuery }) {
+  const list = getVocabList(Number(query.ch || 1));
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">

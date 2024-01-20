@@ -1,4 +1,4 @@
-import { Vocabs } from "./VocabList";
+import { Vocabs } from "../ui/VocabList";
 
 const list: Vocabs = [
   {
@@ -520,7 +520,7 @@ const list: Vocabs = [
   },
 ];
 
-const getListByCh = (ch: number) => {
+export const getVocabList= (ch: number,page: number = 1) => {
   return list.filter((item) => item.ch === ch);
 };
 

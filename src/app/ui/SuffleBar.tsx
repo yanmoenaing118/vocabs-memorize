@@ -1,15 +1,35 @@
+"use client";
 import React, { useState } from "react";
-import ShuffleButton from "./ShuffleButton";
+import ShuffleButton from "../ShuffleButton";
 import Container from "./Container";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function SuffleBar({
-  toggleMeaning,
-  toggleWord,
-  showAll,
-  onSuffle,
-  onSelect,
-  active,
-}: any) {
+export default function SuffleBar() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
+
+  const getQueryString = (key: string, value: string) => {
+    const parmas = new URLSearchParams(searchParams);
+    if (key && value) {
+      parmas.set(key, value);
+    }
+    return `${pathname}?${parmas.toString()}`;
+  };
+
+  const getByChapters = (ch: string) => {
+    const queryString = getQueryString("ch", ch);
+    replace(queryString);
+  };
+
+  const shuffleList = () => {};
+
+  const toggleMeaning = () => {};
+
+  const toggleWord = () => {};
+
+  const showAll = (isChecked: boolean) => {};
+
   return (
     <div className="sticky top-4">
       <div className="flex flex-col justify-between gap-7">
@@ -18,9 +38,12 @@ export default function SuffleBar({
           <ToggleLang lang="jp" onToggle={toggleWord} />
           <ToggleLang lang="mm" onToggle={toggleMeaning} />
         </div>
-        <Chapters active={active} onSelect={onSelect} />
+        <Chapters
+          active={searchParams.get("ch")?.toString()}
+          onSelect={(ch: string) => getByChapters(ch)}
+        />
         <div>
-          <button onClick={onSuffle}>
+          <button onClick={() => {}}>
             <svg
               width="27"
               height="22"
@@ -52,7 +75,7 @@ const Chapters = ({ active, onSelect }: any) => {
             <button
               onClick={() => onSelect(_)}
               key={_}
-              className={active === _ ? "text-gray-700" : "text-white"}
+              className={active == _ ? "text-gray-700" : "text-white"}
             >
               {_}
             </button>
