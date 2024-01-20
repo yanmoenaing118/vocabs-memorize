@@ -1,3 +1,4 @@
+import { unstable_noStore } from "next/cache";
 import { Vocabs } from "../ui/VocabList";
 
 const list: Vocabs = [
