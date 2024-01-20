@@ -4,6 +4,7 @@
 
 export type PropVocabSearchQuery = Partial<{
   ch: string;
-  lang: string;
+  onlyWord: string;
+  onlyMeaning: string;
   page: string;
 }>;
