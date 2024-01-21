@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import ShuffleButton from "../ShuffleButton";
-import Container from "./Container";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function SuffleBar() {
@@ -22,28 +20,58 @@ export default function SuffleBar() {
     replace(queryString);
   };
 
-  const shuffleList = () => {};
+  const toggleWords = () => {
+    const value =
+      searchParams.get("onlyWord")?.toString() === "true" ? "false" : "true";
+    const queryString = getQueryString("onlyWord", value);
+    replace(queryString);
+  };
 
-  const toggleMeaning = () => {};
+  const toggleMeanings = () => {
+    const value =
+      searchParams.get("onlyMeaning")?.toString() === "true" ? "false" : "true";
+    const queryString = getQueryString("onlyMeaning", value);
+    replace(queryString);
+  };
 
-  const toggleWord = () => {};
+  const getRandom = () => {
+    const queryString = getQueryString("random", `${Math.random()}`);
+    replace(queryString);
+  };
 
-  const showAll = (isChecked: boolean) => {};
+  const clearFilter = () => {
+    replace(`${pathname}?ch=${searchParams.get("ch")?.toString()}`);
+  };
 
   return (
     <div className="sticky top-4">
       <div className="flex flex-col justify-between gap-7">
+        <button
+          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded text-sm md:text-base"
+          onClick={clearFilter}
+        >
+          Clear Filters
+        </button>
+
         <div className="flex gap-3 items-center">
           {/* <Checkbox onCheck={showAll}/> */}
-          <ToggleLang lang="jp" onToggle={toggleWord} />
-          <ToggleLang lang="mm" onToggle={toggleMeaning} />
+          <ToggleLang
+            active={searchParams.get("onlyWord")?.toString() === "true"}
+            lang="jp"
+            onToggle={toggleWords}
+          />
+          <ToggleLang
+            active={searchParams.get("onlyMeaning")?.toString() === "true"}
+            lang="mm"
+            onToggle={toggleMeanings}
+          />
         </div>
         <Chapters
           active={searchParams.get("ch")?.toString()}
           onSelect={(ch: string) => getByChapters(ch)}
         />
         <div>
-          <button onClick={() => {}}>
+          <button onClick={getRandom}>
             <svg
               width="27"
               height="22"
@@ -85,21 +113,21 @@ const Chapters = ({ active, onSelect }: any) => {
   );
 };
 
-const ToggleLang = ({ lang, onToggle }: any) => {
+const ToggleLang = ({ active, lang, onToggle }: any) => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <ToggleButton onToggle={onToggle} />
+      <ToggleButton active={active} onToggle={onToggle} />
       <span className="text-white bold uppercase">{lang}</span>
     </div>
   );
 };
 
-const ToggleButton = ({ onToggle }: any) => {
-  const [isActive, setIsActive] = useState(false);
+const ToggleButton = ({ active, onToggle }: any) => {
+  const [isActive, setIsActive] = useState(active);
 
   const toggleButton = () => {
+    onToggle(!isActive);
     setIsActive(!isActive);
-    onToggle();
   };
 
   return (

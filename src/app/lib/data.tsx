@@ -1,5 +1,7 @@
 import { unstable_noStore } from "next/cache";
 import { Vocabs } from "../ui/VocabList";
+import { PropVocabSearchQuery } from "./definitions";
+import _ from "lodash";
 
 const list: Vocabs = [
   {
@@ -521,9 +523,19 @@ const list: Vocabs = [
   },
 ];
 
-export const getVocabList= (ch: number,page: number = 1) => {
-  return list.filter((item) => item.ch === ch);
+export const getVocabList= (query: PropVocabSearchQuery) => {
+  const offset = Number(query.offset || 0);
+  const count = 6;
+  let res = list.filter((item) => item.ch === Number(query.ch ));
+ 
+
+  res = res.slice(offset * count, count * offset + count);
+  if(query.random) res = _.shuffle(res); 
+  console.log(res)
+  return res;
 };
+
+
 
 export default list;
 

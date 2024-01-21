@@ -19,7 +19,8 @@ type VocabListProps = {
 };
 
 export default function VocabList({ query }: { query: PropVocabSearchQuery }) {
-  const list = getVocabList(Number(query.ch || 1));
+  const list = getVocabList(query);
+  console.log('query voc', query);
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -29,10 +30,10 @@ export default function VocabList({ query }: { query: PropVocabSearchQuery }) {
             className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg"
           >
             <h1 className="text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black">
-              {!item.hideWord && item.word}
+              {query.onlyWord == "true" ? item.word : ""}
             </h1>
             <p className="text-sm sm:text-sm md:text-base lg:text-2xl text-gray-200">
-              {!item.hideMeaning && item.meaning}
+              {query.onlyMeaning == "true" && item.meaning}
             </p>
           </div>
         ))}
