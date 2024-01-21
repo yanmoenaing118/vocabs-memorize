@@ -1,9 +1,9 @@
 import { unstable_noStore } from "next/cache";
-import { Vocabs } from "../ui/VocabList";
+import { VocabsList } from "@/app/lib/definitions";
 import { PropVocabSearchQuery } from "./definitions";
 import _ from "lodash";
 
-const list: Vocabs = [
+const list: VocabsList = [
   {
     word: "きります",
     meaning: "ဖြတ်သည်။ ညှပ်သည်။ လှီးသည်။",
@@ -270,7 +270,7 @@ const list: Vocabs = [
     ch: 8,
   },
   {
-    word: "やうめい [な]",
+    word: "ゆうめい　[な]",
     meaning: "နာမည်ကြီးသော",
     ch: 8,
   },
@@ -523,15 +523,18 @@ const list: Vocabs = [
   },
 ];
 
-export const getVocabList= (query: PropVocabSearchQuery) => {
+let prevRandom = "";
+
+export const getVocabList= async (query: PropVocabSearchQuery) => {
+  await new Promise((resolve, reject) => setTimeout(() => {
+    resolve(true)
+  }, 200))
   const offset = Number(query.offset || 0);
   const count = 6;
   let res = list.filter((item) => item.ch === Number(query.ch ));
  
 
   res = res.slice(offset * count, count * offset + count);
-  if(query.random) res = _.shuffle(res); 
-  console.log(res)
   return res;
 };
 

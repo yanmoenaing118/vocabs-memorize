@@ -6,6 +6,8 @@ import _ from "lodash";
 import Container from "./ui/Container";
 import { PropVocabSearchQuery } from "./lib/definitions";
 import { unstable_noStore } from "next/cache";
+import { Suspense } from "react";
+import LoadingSkeleton from "./ui/LoadingSkeleton";
 
 export default function Home({
   searchParams,
@@ -22,7 +24,9 @@ export default function Home({
             <SuffleBar />
           </div>
           <div>
-            <VocabList query={searchParams} />
+            <Suspense key={searchParams.ch} fallback={<LoadingSkeleton />}>
+              <VocabList query={searchParams} />
+            </Suspense>
           </div>
         </div>
       </Container>

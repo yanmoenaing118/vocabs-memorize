@@ -1,8 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function SuffleBar() {
+  const navigateOptions: NavigateOptions = {
+    scroll: false,
+  };
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { replace } = useRouter();
@@ -17,26 +21,24 @@ export default function SuffleBar() {
 
   const getByChapters = (ch: string) => {
     const queryString = getQueryString("ch", ch);
-    replace(queryString);
+    replace(queryString, navigateOptions);
   };
 
-  const toggleWords = () => {
-    const value =
-      searchParams.get("onlyWord")?.toString() === "true" ? "false" : "true";
+  const toggleWords = (isActive: boolean) => {
+    const value = isActive ? "true" : "false";
     const queryString = getQueryString("onlyWord", value);
-    replace(queryString);
+    replace(queryString, navigateOptions);
   };
 
-  const toggleMeanings = () => {
-    const value =
-      searchParams.get("onlyMeaning")?.toString() === "true" ? "false" : "true";
+  const toggleMeanings = (isActive: boolean) => {
+    const value = isActive ? "true" : "false";
     const queryString = getQueryString("onlyMeaning", value);
-    replace(queryString);
+    replace(queryString, navigateOptions);
   };
 
   const getRandom = () => {
     const queryString = getQueryString("random", `${Math.random()}`);
-    replace(queryString);
+    replace(queryString, navigateOptions);
   };
 
   const clearFilter = () => {
@@ -45,33 +47,15 @@ export default function SuffleBar() {
 
   return (
     <div className="sticky top-4">
-      <div className="flex flex-col justify-between gap-7">
-        <button
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded text-sm md:text-base"
-          onClick={clearFilter}
-        >
-          Clear Filters
-        </button>
-
-        <div className="flex gap-3 items-center">
-          {/* <Checkbox onCheck={showAll}/> */}
-          <ToggleLang
-            active={searchParams.get("onlyWord")?.toString() === "true"}
-            lang="jp"
-            onToggle={toggleWords}
-          />
-          <ToggleLang
-            active={searchParams.get("onlyMeaning")?.toString() === "true"}
-            lang="mm"
-            onToggle={toggleMeanings}
-          />
-        </div>
-        <Chapters
-          active={searchParams.get("ch")?.toString()}
-          onSelect={(ch: string) => getByChapters(ch)}
-        />
-        <div>
-          <button onClick={getRandom}>
+      <div className="flex flex-col justify-between gap-8">
+        <div className="flex gap-3">
+          <button
+            className="bg-gray-100 block w-full hover:bg-gray-200 text-gray-600 font-bold py-2 px-2 rounded text-sm"
+            onClick={clearFilter}
+          >
+            Clear
+          </button>
+          <button className="w-full block" onClick={getRandom}>
             <svg
               width="27"
               height="22"
@@ -86,6 +70,30 @@ export default function SuffleBar() {
             </svg>
           </button>
         </div>
+
+        <div className="flex gap-3 items-center">
+          {/* <Checkbox onCheck={showAll}/> */}
+          <ToggleLang
+            active={
+              searchParams.get("onlyWord")?.toString() === "true" ||
+              !searchParams.has("onlyWord")
+            }
+            lang="jp"
+            onToggle={toggleWords}
+          />
+          <ToggleLang
+            active={
+              searchParams.get("onlyMeaning")?.toString() === "true" ||
+              !searchParams.has("onyMeaning")
+            }
+            lang="mm"
+            onToggle={toggleMeanings}
+          />
+        </div>
+        <Chapters
+          active={searchParams.get("ch")?.toString() || 1}
+          onSelect={(ch: string) => getByChapters(ch)}
+        />
       </div>
     </div>
   );

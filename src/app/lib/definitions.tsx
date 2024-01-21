@@ -10,3 +10,14 @@ export type PropVocabSearchQuery = Partial<{
   random: string,
   offset: string
 }>;
+
+type Vocab = {
+  word: string;
+  meaning: string;
+  hideWord?: boolean;
+  hideMeaning?: boolean;
+  conversation?: boolean;
+  ch: number;
+};
+
+export type VocabsList = Vocab[];

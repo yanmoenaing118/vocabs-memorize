@@ -1,42 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "./Container";
 import { PropVocabSearchQuery } from "../lib/definitions";
 import { getVocabList } from "../lib/data";
+import _ from "lodash";
+import clsx from "clsx";
+import NoResultsFound from "./NoResultsFound";
+import Vocabs from "./Vocabs";
 
-type Vocab = {
-  word: string;
-  meaning: string;
-  hideWord?: boolean;
-  hideMeaning?: boolean;
-  conversation?: boolean;
-  ch: number;
-};
+export default async function VocabList({
+  query,
+}: {
+  query: PropVocabSearchQuery;
+}) {
+  const myList = await getVocabList(query);
 
-export type Vocabs = Vocab[];
+  // const [myList, setMyList] = useState(list);
+  // useEffect(() => {
+  //   if (!query) return;
+  //   setMyList(_.shuffle(list));
+  // }, [query]);
 
-type VocabListProps = {
-  list: Vocabs;
-};
-
-export default function VocabList({ query }: { query: PropVocabSearchQuery }) {
-  const list = getVocabList(query);
-  console.log('query voc', query);
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {list.map((item) => (
-          <div
-            key={item.word + item.ch}
-            className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg"
-          >
-            <h1 className="text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black">
-              {query.onlyWord == "true" ? item.word : ""}
-            </h1>
-            <p className="text-sm sm:text-sm md:text-base lg:text-2xl text-gray-200">
-              {query.onlyMeaning == "true" && item.meaning}
-            </p>
+        {myList.length === 0 ? (
+          <div className="sm:col-span-2 md:col-span-3">
+            <NoResultsFound />
           </div>
-        ))}
+        ) : (
+          <Vocabs list={myList} />
+        )}
       </div>
     </>
   );
