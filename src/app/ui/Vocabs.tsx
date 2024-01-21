@@ -11,7 +11,7 @@ export default function Vocabs({ list }: { list: VocabsList }) {
   const [set,setSet] = useState(list);
 
   useEffect(() => {
-    if(!query) return;
+    if(!query.has('random')) return;
     setSet(_.shuffle(set));
   }, [query])
   return set.map((item) => (

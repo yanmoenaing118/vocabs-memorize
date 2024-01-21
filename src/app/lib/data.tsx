@@ -430,7 +430,7 @@ const list: VocabsList = [
     ch: 8,
   },
   {
-    word: "といろ",
+    word: "ところ",
     meaning: "‌‌‌‌‌နေရာ",
     ch: 8,
   },
@@ -526,9 +526,9 @@ const list: VocabsList = [
 let prevRandom = "";
 
 export const getVocabList= async (query: PropVocabSearchQuery) => {
-  await new Promise((resolve, reject) => setTimeout(() => {
-    resolve(true)
-  }, 200))
+  // await new Promise((resolve, reject) => setTimeout(() => {
+  //   resolve(true)
+  // }, 200))
   const offset = Number(query.offset || 0);
   const count = 6;
   let res = list.filter((item) => item.ch === Number(query.ch ));
