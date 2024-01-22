@@ -521,24 +521,287 @@ const list: VocabsList = [
     meaning: "‌‌‌နောက်ထပ်လာလည်ပါဉီး။",
     ch: 8,
   },
+
+  {
+    word: "わかります",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "あります",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "すき [な]",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "きらい　[な]",
+    meaning: "‌‌‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "じょうず　[な]",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "へた　[な]",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "のみまの",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "りょうり",
+    meaning: "‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "スポーツ",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "やきゅう",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "ダンス",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "りょこう",
+    meaning: "‌‌‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "おんがく",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "うた",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "クレシック",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "ジャズ",
+    meaning: "‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "コンサート",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "カラオケ",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "かぶき",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "え",
+    meaning: "‌‌‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "じ*",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "かんじ",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "ひらがな",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "かたかな",
+    meaning: "‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "ローマじ",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "こまかい　お金",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "チケット",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "じかん",
+    meaning: "‌‌‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "ようじ",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "やくそく",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "アルバイト",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "ごしゅじん",
+    meaning: "‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "おっと",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "おくさん",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "つま",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "こども",
+    meaning: "‌‌‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "よく",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "だいたい",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "たくさん",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "すこし",
+    meaning: "‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "ぜんぜん",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "はやく",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "〜　から",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "どうして",
+    meaning: "‌‌‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "かして　ください。",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "いいですよ。",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "ざんねんですが。",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "ああ",
+    meaning: "‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "いっしょに　いかがですか。",
+    meaning: "‌‌‌‌‌",
+    ch: 9,
+  },
+  {
+    word: "[~ は]　ちょっと。",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "だめですか。",
+    meaning: "",
+    ch: 9,
+  },
+  {
+    word: "またこんどあねがいします。",
+    meaning: "‌",
+    ch: 9,
+  },
+  {
+    word: "",
+    meaning: "‌‌‌",
+    ch: 9,
+  },
 ];
 
 let prevRandom = "";
 
-export const getVocabList= async (query: PropVocabSearchQuery) => {
+export const getVocabList = async (query: PropVocabSearchQuery) => {
   // await new Promise((resolve, reject) => setTimeout(() => {
   //   resolve(true)
   // }, 200))
   const offset = Number(query.offset || 0);
   const count = 6;
-  let res = list.filter((item) => item.ch === Number(query.ch ));
- 
+  let res = list.filter((item) => item.ch === Number(query.ch));
 
   res = res.slice(offset * count, count * offset + count);
   return res;
 };
-
-
 
 export default list;
 

@@ -21,16 +21,6 @@ export default async function VocabList({
   // }, [query]);
 
   return (
-    <>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {myList.length === 0 ? (
-          <div className="sm:col-span-2 md:col-span-3">
-            <NoResultsFound />
-          </div>
-        ) : (
-          <Vocabs list={myList} />
-        )}
-      </div>
-    </>
+    <>{myList.length === 0 ? <NoResultsFound /> : <Vocabs list={myList} />}</>
   );
 }
