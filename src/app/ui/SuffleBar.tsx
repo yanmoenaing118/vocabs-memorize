@@ -90,8 +90,8 @@ const Chapters = ({ active, onSelect }: any) => {
   return (
     <div>
       <div className="text-white underline mb-1">Chapters</div>
-      <div className="grid grid-cols-4 justify-items-start gap-3 text-white">
-        {new Array(8)
+      <div className="grid grid-cols-4 justify-items-start gap-2 text-white">
+        {new Array(25)
           .fill(0)
           .map((_, i) => i + 1)
           .map((_, i) => (
