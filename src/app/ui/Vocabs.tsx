@@ -5,9 +5,13 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { VocabsList } from "../lib/definitions";
 import { useState } from "react";
 import _, { replace } from "lodash";
-import { TrackNextIcon, TrackPreviousIcon } from "@radix-ui/react-icons";
+import {
+  HamburgerMenuIcon,
+  TrackNextIcon,
+  TrackPreviousIcon,
+} from "@radix-ui/react-icons";
 import Pagination from "./Pagination";
-
+import ShuffleBar from "./SuffleBar";
 
 export default function Vocabs({
   list,
@@ -23,20 +27,15 @@ export default function Vocabs({
   const goToPage = (page: number) => {
     const params = new URLSearchParams(query);
     params.set("offset", `${page}`);
-    router.replace(`${pathname}?${params.toString()}`)
-  }
+    router.replace(`${pathname}?${params.toString()}`);
+  };
   return (
     <>
       <div className="sticky top-4 flex w-full justify-between mb-4">
-        <Pagination
-          currentPage={query.get("offset")?.toString() || 0}
-          totalItems={totalVocabs}
-          itemsPerPage={query.get("count")?.toString() || 6}
-          onNext={goToPage}
-          onPrev={goToPage}
-        />
-
-        <button className="px-3 py-2" onClick={() => setSet(_.shuffle(list))}>
+        <button className="block md:hidden px-3 py-2 border border-white">
+          <HamburgerMenuIcon color="white" />
+        </button>
+        <button className="px-3 py-1" onClick={() => setSet(_.shuffle(list))}>
           <svg
             width="27"
             height="22"
@@ -51,37 +50,54 @@ export default function Vocabs({
           </svg>
         </button>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {set.map((item) => (
-          <div
-            key={item.word + item.ch}
-            className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg"
-          >
-            <h1
-              className={clsx(
-                "text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black transition-opacity",
-                {
-                  "opacity-1": query.get("onlyWorld")?.toString() === "true",
-                  "opacity-0": query.get("onlyWord")?.toString() === "false",
-                }
-              )}
+      <div className="min-h-screen">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+          {set.map((item) => (
+            <div
+              key={item.word + item.ch}
+              className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg"
             >
-              {item.word}
-            </h1>
-            <p
-              className={clsx(
-                "text-sm sm:text-sm md:text-base lg:text-2xl text-gray-200  transition-opacity",
-                {
-                  "opacity-1": query.get("onlyMeaning")?.toString() === "true",
-                  "opacity-0": query.get("onlyMeaning")?.toString() === "false",
-                }
-              )}
-            >
-              {item.meaning}
-            </p>
-          </div>
-        ))}
+              <h1
+                className={clsx(
+                  "text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black transition-opacity",
+                  {
+                    "opacity-1": query.get("onlyWorld")?.toString() === "true",
+                    "opacity-0": query.get("onlyWord")?.toString() === "false",
+                  }
+                )}
+              >
+                {item.word}
+              </h1>
+              <p
+                className={clsx(
+                  "text-sm sm:text-sm md:text-base lg:text-2xl text-gray-200  transition-opacity",
+                  {
+                    "opacity-1":
+                      query.get("onlyMeaning")?.toString() === "true",
+                    "opacity-0":
+                      query.get("onlyMeaning")?.toString() === "false",
+                  }
+                )}
+              >
+                {item.meaning}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
+      <div className="sticky bottom-4 flex justify-end mt-4">
+        <Pagination
+          currentPage={query.get("offset")?.toString() || 0}
+          totalItems={totalVocabs}
+          itemsPerPage={query.get("count")?.toString() || 6}
+          onNext={goToPage}
+          onPrev={goToPage}
+        />
+      </div>
+
+      {/* <div className="fixed top-0 bottom-0 p-8 left-0 right-0 h-screen w-full bg-red-600">
+        <ShuffleBar />
+      </div> */}
     </>
   );
 }
