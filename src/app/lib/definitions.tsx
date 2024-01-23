@@ -8,7 +8,8 @@ export type PropVocabSearchQuery = Partial<{
   onlyMeaning: string;
   page: string;
   random: string,
-  offset: string
+  offset: string,
+  count: number
 }>;
 
 type Vocab = {

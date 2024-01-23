@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "./Container";
 import { PropVocabSearchQuery } from "../lib/definitions";
-import { getVocabList } from "../lib/data";
+import { getTotalVocabs, getVocabList } from "../lib/data";
 import _ from "lodash";
 import clsx from "clsx";
 import NoResultsFound from "./NoResultsFound";
@@ -13,14 +13,15 @@ export default async function VocabList({
   query: PropVocabSearchQuery;
 }) {
   const myList = await getVocabList(query);
-
-  // const [myList, setMyList] = useState(list);
-  // useEffect(() => {
-  //   if (!query) return;
-  //   setMyList(_.shuffle(list));
-  // }, [query]);
+  const totalVocabs = await getTotalVocabs(query);
 
   return (
-    <>{myList.length === 0 ? <NoResultsFound /> : <Vocabs list={myList} />}</>
+    <>
+      {myList.length === 0 ? (
+        <NoResultsFound />
+      ) : (
+        <Vocabs totalVocabs={totalVocabs} list={myList} />
+      )}
+    </>
   );
 }

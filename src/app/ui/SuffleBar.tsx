@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { Select, SelectItem } from "@/app/ui/utils/Select";
+import ToggleButton from "./ToggleButton";
 
 export default function SuffleBar() {
   const navigateOptions: NavigateOptions = {
@@ -38,7 +39,12 @@ export default function SuffleBar() {
   };
 
   const clearFilter = () => {
-    replace(`${pathname}?ch=${searchParams.get("ch")?.toString()}`);
+    replace(`${pathname}?ch=${searchParams.get("ch")?.toString() || 1}`);
+  };
+
+  const getItemsPerPage = (value: string) => {
+    const queryString = getQueryString("count", value);
+    replace(queryString, navigateOptions);
   };
 
   return (
@@ -54,18 +60,13 @@ export default function SuffleBar() {
         </div>
 
         <div>
-          <div className="text-white underline mb-1">Items per page</div>
-          <Select defaultValue={6} width="120px">
-            {[3, 6, 9, 12, 15, 18, 21].map((no) => (
-              <SelectItem value={no} key={no}>
-                <span className="text-black px-2.5 text-sm">{no}</span>
-              </SelectItem>
-            ))}
-          </Select>
+          <ItemsPerPageSelector
+            value={Number(searchParams.get("count")?.toString()) || 6}
+            onSelected={getItemsPerPage}
+          />
         </div>
 
         <div className="flex gap-3 items-center">
-          {/* <Checkbox onCheck={showAll}/> */}
           <ToggleLang
             active={
               searchParams.get("onlyWord")?.toString() === "true" ||
@@ -123,47 +124,17 @@ const ToggleLang = ({ active, lang, onToggle }: any) => {
   );
 };
 
-const ToggleButton = ({ active, onToggle }: any) => {
-  const [isActive, setIsActive] = useState(active);
-
-  const toggleButton = () => {
-    onToggle(!isActive);
-    setIsActive(!isActive);
-  };
-
+const ItemsPerPageSelector = ({ value, onSelected }: any) => {
   return (
-    <button
-      className={`bg-gray-300 w-12 h-6 rounded-full  transition-colors duration-300 ${
-        isActive ? "bg-blue-500" : "bg-gray-500"
-      }`}
-      onClick={toggleButton}
-    >
-      <div
-        className={`bg-white w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 ${
-          isActive ? "translate-x-7" : "translate-x-0"
-        }`}
-      />
-    </button>
-  );
-};
-
-const Checkbox = ({ onCheck }: any) => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-    onCheck(isChecked);
-  };
-
-  return (
-    <label className="flex items-center cursor-pointer mr-3 mb-4">
-      <input
-        type="checkbox"
-        className="form-checkbox h-5 w-5 text-blue-900 rounded border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
-        checked={isChecked}
-        onChange={handleCheckboxChange}
-      />
-      <span className="ml-2 text-green-200">Show Both</span>
-    </label>
+    <>
+      <div className="text-white underline mb-1">Items per page</div>
+      <Select value={value} width="120px" onValueChange={onSelected}>
+        {[3, 6, 9, 12, 15, 18, 21].map((no) => (
+          <SelectItem value={no} key={no}>
+            <span className="text-black px-2.5 text-sm">{no}</span>
+          </SelectItem>
+        ))}
+      </Select>
+    </>
   );
 };

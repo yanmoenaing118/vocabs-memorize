@@ -9,22 +9,25 @@ import { unstable_noStore } from "next/cache";
 import { Suspense } from "react";
 import LoadingSkeleton from "./ui/LoadingSkeleton";
 
+export const dynamic = "force-dynamic";
+
 export default function Home({
   searchParams,
 }: {
   searchParams: PropVocabSearchQuery;
 }) {
   unstable_noStore();
+  const { count, offset, ch} = searchParams;
   return (
     <main>
       <Navbar />
       <Container>
-        <div className="grid grid-cols-[120px,1fr] gap-12">
-          <div className="min-h-screen">
+        <div className="grid grid-cols-[1fr] md:grid-cols-[120px,1fr] gap-12">
+          <div className="min-h-screen hidden md:block">
             <SuffleBar />
           </div>
           <div>
-            <Suspense key={searchParams.ch} fallback={<LoadingSkeleton />}>
+            <Suspense key={`${count}${offset || ""}${ch}`} fallback={<LoadingSkeleton />}>
               <VocabList query={searchParams} />
             </Suspense>
           </div>

@@ -1,28 +1,40 @@
 "use client";
 
 import clsx from "clsx";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { VocabsList } from "../lib/definitions";
 import { useState } from "react";
-import _ from "lodash";
+import _, { replace } from "lodash";
 import { TrackNextIcon, TrackPreviousIcon } from "@radix-ui/react-icons";
+import Pagination from "./Pagination";
 
-export default function Vocabs({ list }: { list: VocabsList }) {
+
+export default function Vocabs({
+  list,
+  totalVocabs,
+}: {
+  list: VocabsList;
+  totalVocabs: number;
+}) {
   const query = useSearchParams();
   const [set, setSet] = useState(list);
-
+  const pathname = usePathname();
+  const router = useRouter();
+  const goToPage = (page: number) => {
+    const params = new URLSearchParams(query);
+    params.set("offset", `${page}`);
+    router.replace(`${pathname}?${params.toString()}`)
+  }
   return (
     <>
       <div className="sticky top-4 flex w-full justify-between mb-4">
-        <div className="text-white flex gap-3 items-center">
-          <button className="border border-white text-white font-bold py-2 px-3 rounded inline-flex items-center">
-            <TrackPreviousIcon />
-          </button>
-          <span>1</span>
-          <button className="border border-white text-white font-bold py-2 px-3 rounded inline-flex items-center">
-            <TrackNextIcon />
-          </button>
-        </div>
+        <Pagination
+          currentPage={query.get("offset")?.toString() || 0}
+          totalItems={totalVocabs}
+          itemsPerPage={query.get("count")?.toString() || 6}
+          onNext={goToPage}
+          onPrev={goToPage}
+        />
 
         <button className="px-3 py-2" onClick={() => setSet(_.shuffle(list))}>
           <svg

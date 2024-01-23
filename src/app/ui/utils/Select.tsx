@@ -43,6 +43,8 @@ export const Select = forwardRef(
   }
 );
 
+Select.displayName = "Select";
+
 export const SelectItem = forwardRef(
   ({ children, className, ...props }: any, forwardedRef: any) => {
     return (
@@ -58,3 +60,5 @@ export const SelectItem = forwardRef(
     );
   }
 );
+
+SelectItem.displayName = "SelectItem";
