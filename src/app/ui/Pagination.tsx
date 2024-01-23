@@ -10,7 +10,7 @@ export default function Pagination({
   onNext,
   onPrev,
 }: any) {
-  const totalPage = Math.ceil(totalItems / itemsPerPage);
+  const totalPage = Math.round(totalItems / itemsPerPage);
   const nextPage = Math.min(Number(currentPage) + 1, totalPage + 1);
   const prevPage = Math.max(Number(currentPage) - 1, 0);
   return (
@@ -20,23 +20,25 @@ export default function Pagination({
         className={clsx(
           "border border-white text-white font-bold py-2 px-3 rounded inline-flex items-center",
           {
-            "opacity-25": prevPage == 0,
+            "opacity-25": currentPage == 0,
           }
         )}
-        disabled={prevPage == 0}
+        disabled={currentPage == 0}
       >
         <TrackPreviousIcon />
       </button>
-      <span>{currentPage} / {totalPage}</span>
+      <span>
+        {currentPage} / {totalPage - 1}
+      </span>
       <button
         onClick={() => onNext(nextPage)}
         className={clsx(
           "border border-white text-white font-bold py-2 px-3 rounded inline-flex items-center",
           {
-            "opacity-25": nextPage >= totalPage,
+            "opacity-25": currentPage == totalPage - 1,
           }
         )}
-        disabled={nextPage >= totalPage}
+        disabled={currentPage == totalPage - 1}
       >
         <TrackNextIcon />
       </button>
