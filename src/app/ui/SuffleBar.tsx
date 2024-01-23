@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import SelectDemo from "./utils/Select";
+import { Select, SelectItem } from "@/app/ui/utils/Select";
 
 export default function SuffleBar() {
   const navigateOptions: NavigateOptions = {
@@ -55,7 +55,13 @@ export default function SuffleBar() {
 
         <div>
           <div className="text-white underline mb-1">Items per page</div>
-          <SelectDemo />
+          <Select defaultValue={6} width="120px">
+            {[3, 6, 9, 12, 15, 18, 21].map((no) => (
+              <SelectItem value={no} key={no}>
+                <span className="text-black px-2.5 text-sm">{no}</span>
+              </SelectItem>
+            ))}
+          </Select>
         </div>
 
         <div className="flex gap-3 items-center">
@@ -98,7 +104,7 @@ const Chapters = ({ active, onSelect }: any) => {
             <button
               onClick={() => onSelect(_)}
               key={_}
-              className={active == _ ? "text-gray-700" : "text-white"}
+              className={active == _ ? "text-black" : "text-white"}
             >
               {_}
             </button>
