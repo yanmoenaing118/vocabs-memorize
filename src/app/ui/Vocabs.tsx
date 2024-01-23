@@ -32,6 +32,12 @@ export default function Vocabs({
   const [set, setSet] = useState(list);
   const pathname = usePathname();
   const router = useRouter();
+
+  const [visibility, setVisibility] = useState({
+    showMeaning: true,
+    showWord: true,
+  });
+
   const goToPage = (page: number) => {
     const params = new URLSearchParams(query);
     params.set("offset", `${page}`);
@@ -49,15 +55,14 @@ export default function Vocabs({
   };
 
   const toggleWords = (isActive: boolean) => {
-    const value = isActive ? "true" : "false";
-    const queryString = getQueryString("onlyWord", value);
-    router.replace(queryString, navigateOptions);
+    setVisibility({ ...visibility, showWord: isActive });
+    console.log(isActive)
   };
 
   const toggleMeanings = (isActive: boolean) => {
-    const value = isActive ? "true" : "false";
-    const queryString = getQueryString("onlyMeaning", value);
-    router.replace(queryString, navigateOptions);
+    setVisibility({ ...visibility, showMeaning: isActive });
+    console.log(isActive)
+
   };
 
   return (
@@ -71,18 +76,12 @@ export default function Vocabs({
         </button>
         <div className="flex gap-3 items-center">
           <ToggleLang
-            active={
-              query.get("onlyWord")?.toString() === "true" ||
-              !query.has("onlyWord")
-            }
+            active={visibility.showWord}
             lang="jp"
             onToggle={toggleWords}
           />
           <ToggleLang
-            active={
-              query.get("onlyMeaning")?.toString() === "true" ||
-              !query.has("onlyMeaning")
-            }
+            active={visibility.showMeaning}
             lang="mm"
             onToggle={toggleMeanings}
           />
@@ -107,39 +106,41 @@ export default function Vocabs({
       </div>
 
       <div className="min-h-screen">
-        {set.length > 0 ? <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-          {set.map((item) => (
-            <div
-              key={item.word + item.ch}
-              className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg"
-            >
-              <h1
-                className={clsx(
-                  "text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black transition-opacity",
-                  {
-                    "opacity-1": query.get("onlyWorld")?.toString() === "true",
-                    "opacity-0": query.get("onlyWord")?.toString() === "false",
-                  }
-                )}
+        {set.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+            {set.map((item) => (
+              <div
+                key={item.word + item.ch}
+                className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg"
               >
-                {item.word}
-              </h1>
-              <p
-                className={clsx(
-                  "text-sm sm:text-sm md:text-base lg:text-2xl text-gray-200  transition-opacity",
-                  {
-                    "opacity-1":
-                      query.get("onlyMeaning")?.toString() === "true",
-                    "opacity-0":
-                      query.get("onlyMeaning")?.toString() === "false",
-                  }
-                )}
-              >
-                {item.meaning}
-              </p>
-            </div>
-          ))}
-        </div> :<NoResultsFound /> }
+                <h1
+                  className={clsx(
+                    "text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black transition-opacity",
+                    {
+                      "opacity-1": visibility.showWord,
+                      "opacity-0": !visibility.showWord,
+                    }
+                  )}
+                >
+                  {item.word}
+                </h1>
+                <p
+                  className={clsx(
+                    "text-sm sm:text-sm md:text-base lg:text-2xl text-gray-200  transition-opacity",
+                    {
+                      "opacity-1": visibility.showMeaning,
+                      "opacity-0": !visibility.showMeaning,
+                    }
+                  )}
+                >
+                  {item.meaning}
+                </p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <NoResultsFound />
+        )}
       </div>
       <div className="sticky bottom-4 flex justify-end mt-4">
         <Pagination
@@ -179,7 +180,9 @@ const ToggleLang = ({ active, lang, onToggle }: any) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <ToggleButton active={active} onToggle={onToggle} />
-      <span className="block mt-1 text-sm text-white bold uppercase">{lang}</span>
+      <span className="block mt-1 text-sm text-white bold uppercase">
+        {lang}
+      </span>
     </div>
   );
 };
