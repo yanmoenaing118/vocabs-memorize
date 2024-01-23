@@ -46,22 +46,15 @@ export default function Vocabs({
 
   const [openFilter, setOpenFilter] = useState(false);
 
-  const getQueryString = (key: string, value: string) => {
-    const parmas = new URLSearchParams(query);
-    if (key && value) {
-      parmas.set(key, value);
-    }
-    return `${pathname}?${parmas.toString()}`;
-  };
-
   const toggleWords = (isActive: boolean) => {
+
     setVisibility({ ...visibility, showWord: isActive });
-    console.log(isActive)
+
   };
 
   const toggleMeanings = (isActive: boolean) => {
     setVisibility({ ...visibility, showMeaning: isActive });
-    console.log(isActive)
+
 
   };
 
