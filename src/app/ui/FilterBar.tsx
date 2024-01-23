@@ -3,12 +3,13 @@ import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { Select, SelectItem } from "@/app/ui/utils/Select";
-import ToggleButton from "./ToggleButton";
 
-export default function SuffleBar() {
-  const navigateOptions: NavigateOptions = {
-    scroll: false,
-  };
+const navigateOptions: NavigateOptions = {
+  scroll: false,
+};
+
+export default function FilterBar() {
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { replace } = useRouter();
@@ -26,17 +27,6 @@ export default function SuffleBar() {
     replace(queryString, navigateOptions);
   };
 
-  const toggleWords = (isActive: boolean) => {
-    const value = isActive ? "true" : "false";
-    const queryString = getQueryString("onlyWord", value);
-    replace(queryString, navigateOptions);
-  };
-
-  const toggleMeanings = (isActive: boolean) => {
-    const value = isActive ? "true" : "false";
-    const queryString = getQueryString("onlyMeaning", value);
-    replace(queryString, navigateOptions);
-  };
 
   const clearFilter = () => {
     replace(`${pathname}?ch=${searchParams.get("ch")?.toString() || 1}`);
@@ -66,24 +56,7 @@ export default function SuffleBar() {
           />
         </div>
 
-        <div className="flex gap-3 items-center">
-          <ToggleLang
-            active={
-              searchParams.get("onlyWord")?.toString() === "true" ||
-              !searchParams.has("onlyWord")
-            }
-            lang="jp"
-            onToggle={toggleWords}
-          />
-          <ToggleLang
-            active={
-              searchParams.get("onlyMeaning")?.toString() === "true" ||
-              !searchParams.has("onlyMeaning")
-            }
-            lang="mm"
-            onToggle={toggleMeanings}
-          />
-        </div>
+        
         <Chapters
           active={searchParams.get("ch")?.toString() || 1}
           onSelect={(ch: string) => getByChapters(ch)}
@@ -111,15 +84,6 @@ const Chapters = ({ active, onSelect }: any) => {
             </button>
           ))}
       </div>
-    </div>
-  );
-};
-
-const ToggleLang = ({ active, lang, onToggle }: any) => {
-  return (
-    <div className="flex flex-col justify-center items-center">
-      <ToggleButton active={active} onToggle={onToggle} />
-      <span className="text-white bold uppercase">{lang}</span>
     </div>
   );
 };

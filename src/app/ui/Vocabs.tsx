@@ -6,12 +6,20 @@ import { VocabsList } from "../lib/definitions";
 import { useState } from "react";
 import _, { replace } from "lodash";
 import {
+  Cross1Icon,
   HamburgerMenuIcon,
   TrackNextIcon,
   TrackPreviousIcon,
 } from "@radix-ui/react-icons";
 import Pagination from "./Pagination";
-import ShuffleBar from "./SuffleBar";
+import ShuffleBar from "./FilterBar";
+import ToggleButton from "./ToggleButton";
+import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import NoResultsFound from "./NoResultsFound";
+
+const navigateOptions: NavigateOptions = {
+  scroll: false,
+};
 
 export default function Vocabs({
   list,
@@ -29,13 +37,60 @@ export default function Vocabs({
     params.set("offset", `${page}`);
     router.replace(`${pathname}?${params.toString()}`);
   };
+
+  const [openFilter, setOpenFilter] = useState(false);
+
+  const getQueryString = (key: string, value: string) => {
+    const parmas = new URLSearchParams(query);
+    if (key && value) {
+      parmas.set(key, value);
+    }
+    return `${pathname}?${parmas.toString()}`;
+  };
+
+  const toggleWords = (isActive: boolean) => {
+    const value = isActive ? "true" : "false";
+    const queryString = getQueryString("onlyWord", value);
+    router.replace(queryString, navigateOptions);
+  };
+
+  const toggleMeanings = (isActive: boolean) => {
+    const value = isActive ? "true" : "false";
+    const queryString = getQueryString("onlyMeaning", value);
+    router.replace(queryString, navigateOptions);
+  };
+
   return (
     <>
       <div className="sticky top-4 flex w-full justify-between mb-4">
-        <button className="block md:hidden px-3 py-2 border border-white">
+        <button
+          onClick={() => setOpenFilter(true)}
+          className="md:hidden min-w-[48px] flex items-center justify-center border border-white"
+        >
           <HamburgerMenuIcon color="white" />
         </button>
-        <button className="px-3 py-1" onClick={() => setSet(_.shuffle(list))}>
+        <div className="flex gap-3 items-center">
+          <ToggleLang
+            active={
+              query.get("onlyWord")?.toString() === "true" ||
+              !query.has("onlyWord")
+            }
+            lang="jp"
+            onToggle={toggleWords}
+          />
+          <ToggleLang
+            active={
+              query.get("onlyMeaning")?.toString() === "true" ||
+              !query.has("onlyMeaning")
+            }
+            lang="mm"
+            onToggle={toggleMeanings}
+          />
+        </div>
+        <button
+          className="border rounded px-3 py-1"
+          onClick={() => setSet(_.shuffle(list))}
+        >
           <svg
             width="27"
             height="22"
@@ -50,8 +105,9 @@ export default function Vocabs({
           </svg>
         </button>
       </div>
+
       <div className="min-h-screen">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+        {set.length > 0 ? <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
           {set.map((item) => (
             <div
               key={item.word + item.ch}
@@ -83,7 +139,7 @@ export default function Vocabs({
               </p>
             </div>
           ))}
-        </div>
+        </div> :<NoResultsFound /> }
       </div>
       <div className="sticky bottom-4 flex justify-end mt-4">
         <Pagination
@@ -95,9 +151,35 @@ export default function Vocabs({
         />
       </div>
 
-      {/* <div className="fixed top-0 bottom-0 p-8 left-0 right-0 h-screen w-full bg-red-600">
+      <div
+        className={clsx(
+          "fixed transition-transform ease-in-out duration-300 block md:hidden top-0 bottom-0 p-4 left-0 right-0 h-screen w-full bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 min-h-screen",
+          {
+            "-translate-x-full": !openFilter,
+            "translate-x-0": openFilter,
+          }
+        )}
+      >
+        <div className="flex justify-end mb-6">
+          <button
+            onClick={() => setOpenFilter(false)}
+            className=" border rounded-full p-3"
+          >
+            <Cross1Icon color="white" />
+          </button>
+        </div>
+
         <ShuffleBar />
-      </div> */}
+      </div>
     </>
   );
 }
+
+const ToggleLang = ({ active, lang, onToggle }: any) => {
+  return (
+    <div className="flex flex-col justify-center items-center">
+      <ToggleButton active={active} onToggle={onToggle} />
+      <span className="text-white bold uppercase">{lang}</span>
+    </div>
+  );
+};

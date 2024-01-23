@@ -14,7 +14,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <button className="border text-white p-1  md:px-4 md:py-2 rounded-md flex items-center gap-2">
+        {/* <button className="border text-white p-1  md:px-4 md:py-2 rounded-md flex items-center gap-2">
           <svg
           className="scale-75"
             width="32"
@@ -46,7 +46,7 @@ export default function Navbar() {
             />
           </svg>
           <span className="hidden md:block">Add New</span>
-        </button>
+        </button> */}
       </div>
     </Container>
   );

@@ -1,7 +1,7 @@
 "use client";
 import VocabList from "./ui/VocabList";
 import Navbar from "./ui/Navbar";
-import SuffleBar from "./ui/SuffleBar";
+import FilterBar from "./ui/FilterBar";
 import _ from "lodash";
 import Container from "./ui/Container";
 import { PropVocabSearchQuery } from "./lib/definitions";
@@ -24,7 +24,7 @@ export default function Home({
       <Container>
         <div className="grid grid-cols-[1fr] md:grid-cols-[120px,1fr] gap-12">
           <div className="min-h-screen hidden md:block">
-            <SuffleBar />
+            <FilterBar />
           </div>
           <div>
             <Suspense key={`${count}${offset || ""}${ch}`} fallback={<LoadingSkeleton />}>

@@ -17,11 +17,7 @@ export default async function VocabList({
 
   return (
     <>
-      {myList.length === 0 ? (
-        <NoResultsFound />
-      ) : (
-        <Vocabs totalVocabs={totalVocabs} list={myList} />
-      )}
+      <Vocabs totalVocabs={totalVocabs} list={myList} />
     </>
   );
 }
