@@ -179,7 +179,7 @@ const ToggleLang = ({ active, lang, onToggle }: any) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <ToggleButton active={active} onToggle={onToggle} />
-      <span className="text-white bold uppercase">{lang}</span>
+      <span className="block mt-1 text-sm text-white bold uppercase">{lang}</span>
     </div>
   );
 };
