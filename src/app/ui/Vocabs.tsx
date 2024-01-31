@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { VocabsList } from "../lib/definitions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import _, { replace } from "lodash";
 import {
   Cross1Icon,
@@ -38,6 +38,13 @@ export default function Vocabs({
     showWord: true,
   });
 
+
+  useEffect(() => {
+    if(!query.has('ch')) {
+      router.replace(`${pathname}?ch=9`)
+    }
+  
+  },[])
   const goToPage = (page: number) => {
     const params = new URLSearchParams(query);
     params.set("offset", `${page}`);
