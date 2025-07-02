@@ -46,7 +46,7 @@ export default function Vocabs({
   
   },[])
   const goToPage = (page: number) => {
-    const params = new URLSearchParams(query);
+    const params = new URLSearchParams(query.toString());
     params.set("offset", `${page}`);
     router.replace(`${pathname}?${params.toString()}`);
   };
@@ -115,7 +115,7 @@ export default function Vocabs({
               >
                 <h1
                   className={clsx(
-                    "text-sm sm:text-sm md:text-base lg:text-2xl font-light mb-4 text-black transition-opacity",
+                    "text-2xl font-light mb-4 text-black transition-opacity",
                     {
                       "opacity-1": visibility.showWord,
                       "opacity-0": !visibility.showWord,
