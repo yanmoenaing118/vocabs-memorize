@@ -1,6 +1,5 @@
 import { VocabsList } from "./app/lib/definitions";
 
-
 export const list: VocabsList = [
   {
     word: "きります",
@@ -8,7 +7,8 @@ export const list: VocabsList = [
     hideWord: false,
     hideMeaning: false,
     ch: 7,
-    image_url: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&fit=crop",
   },
   {
     word: "おくります",
@@ -16,7 +16,8 @@ export const list: VocabsList = [
     hideWord: false,
     hideMeaning: false,
     ch: 7,
-    image_url: "https://images.unsplash.com/photo-1566125882500-87e10f726cdc?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1566125882500-87e10f726cdc?w=400&h=300&fit=crop",
   },
   {
     word: "あげます",
@@ -24,7 +25,8 @@ export const list: VocabsList = [
     hideWord: false,
     hideMeaning: false,
     ch: 7,
-    image_url: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
   },
   {
     word: "もらいます",
@@ -71,19 +73,22 @@ export const list: VocabsList = [
     word: "はし",
     meaning: "တူ",
     ch: 7,
-    image_url: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop",
   },
   {
     word: "スプーン",
     meaning: "‌ဇွန်း",
     ch: 7,
-    image_url: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop",
   },
   {
     word: "ナイフ",
     meaning: "ဓား",
     ch: 7,
-    image_url: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
   },
   {
     word: "フｵーク",
@@ -829,19 +834,22 @@ export const list: VocabsList = [
     word: "いぬ",
     meaning: "ခွေး",
     ch: 10,
-    image_url: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop",
   },
   {
     word: "ねこ",
     meaning: "ကြောင်",
     ch: 10,
-    image_url: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop",
   },
   {
     word: "パンダ",
     meaning: "ပန်ဒါဝက်ဝံ",
     ch: 10,
-    image_url: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400&h=300&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400&h=300&fit=crop",
   },
   {
     word: "ぞう",
@@ -1031,160 +1039,369 @@ export const list: VocabsList = [
   {
     word: "あなた",
     meaning: "သင်.ခင်ဗျား.ရှင်",
-    ch: 1
+    ch: 1,
   },
   {
     word: "あの　ひと。",
     meaning: "ဟိုလူ.ဟိုပုဂ္ဂိုလ်",
-    ch: 1
+    ch: 1,
   },
   {
     word: "〜さん",
-    meaning: "ဉီး-,ဒေါ်- (ယဥ် ကျေး မှုကို ဖော်ပြသော အားဖြင့် အမည်မျာနောက်တွင်ထည့်သုံးသောနောက်ဆက်)",
-    ch: 1
+    meaning:
+      "ဉီး-,ဒေါ်- (ယဥ် ကျေး မှုကို ဖော်ပြသော အားဖြင့် အမည်မျာနောက်တွင်ထည့်သုံးသောနောက်ဆက်)",
+    ch: 1,
   },
   {
     word: "〜ちゃん",
     meaning: "မောင်, မ (-さん　အစား ကလေးများအမည်များနောက်တွင်သုံး)",
-    ch: 1
+    ch: 1,
   },
   {
     word: "~じん。〜人",
     meaning: "-လူမျိုး (လူမျိုးဟူသော)",
-    ch: 1
+    ch: 1,
   },
   {
     word: "さんせい",
     meaning: "‌ဆရာ/ဆရာမ ",
-    ch: 1
+    ch: 1,
   },
   {
     word: "きょうし",
     meaning: "ကျောင်းဆရာ/နည်းပြဆရာ",
     ch: 1,
-    image_url: "https://c4.wallpaperflare.com/wallpaper/630/817/72/asian-teachers-model-black-miniskirt-red-lipstick-hd-wallpaper-preview.jpg"
+    image_url:
+      "https://c4.wallpaperflare.com/wallpaper/630/817/72/asian-teachers-model-black-miniskirt-red-lipstick-hd-wallpaper-preview.jpg",
   },
   {
     word: "がくせい",
     meaning: "ကျောင်းသား/ကျောင်းသူ  ",
     ch: 1,
-    image_url: "https://borgenproject.org/wp-content/uploads/Education-in-Japan-1-scaled.jpg"
+    image_url:
+      "https://borgenproject.org/wp-content/uploads/Education-in-Japan-1-scaled.jpg",
   },
   {
     word: "かいしゃいん",
     meaning: "‌‌‌‌‌ကုမ္ပဏီဝန်ထမ်း",
     ch: 1,
-    image_url: "https://motto-jp.com/media/wp-content/uploads/2020/03/5-4.jpeg"
+    image_url: "https://motto-jp.com/media/wp-content/uploads/2020/03/5-4.jpeg",
   },
   {
     word: "しゃいん",
     meaning: "ဝန်ထမ်း",
     ch: 1,
-    image_url: "https://motto-jp.com/media/wp-content/uploads/2020/03/5-4.jpeg"
+    image_url: "https://motto-jp.com/media/wp-content/uploads/2020/03/5-4.jpeg",
   },
   {
     word: "ぎんこういん",
     meaning: "ဘဏ်ဝန်ထမ်း",
     ch: 1,
-    image_url: "https://cdn.yomastrategic.net/public/fmi/contents/uploads/2018/09/17021418/Yoma-Bank1.jpg"
+    image_url:
+      "https://cdn.yomastrategic.net/public/fmi/contents/uploads/2018/09/17021418/Yoma-Bank1.jpg",
   },
   {
     word: "いしゃ ",
     meaning: "ဆရာဝန် ",
     ch: 1,
-    image_url: "https://cdn001.imggle.net/webp/poster/20240807/1721443316.webp"
+    image_url: "https://cdn001.imggle.net/webp/poster/20240807/1721443316.webp",
   },
   {
     word: "けんきゅうしゃ",
     meaning: "‌သုတေသနပညာရှင်",
     ch: 1,
-    image_url: "https://altum.com/wp-content/uploads/2022/10/Altum_Article2_Assets.jpg"
+    image_url:
+      "https://altum.com/wp-content/uploads/2022/10/Altum_Article2_Assets.jpg",
   },
-{
+  {
     word: "だいがく ",
     meaning: "‌တက္ကသိုလ် ",
     ch: 1,
-    image_url: "https://www.careerguide.com/career/wp-content/uploads/2023/11/massachusetts-institute-of-technology-study-abroad.jpg"
+    image_url:
+      "https://www.careerguide.com/career/wp-content/uploads/2023/11/massachusetts-institute-of-technology-study-abroad.jpg",
   },
   {
     word: "びょういん ",
     meaning: " ဆေးရုံ/ဆေးခန်း  ",
     ch: 1,
-    image_url: "https://indoeuropean.eu/wp-content/uploads/2021/08/best-hospital-in-south-india.jpg"
+    image_url:
+      "https://indoeuropean.eu/wp-content/uploads/2021/08/best-hospital-in-south-india.jpg",
   },
   {
     word: "だれ (どなた)",
     meaning: "ဘယ်သူ (どなた သည် だれ ကိုယဉ်ကျေးစွာအလို့ငှာသုံးသည်။)",
-    ch: 1
+    ch: 1,
   },
   {
     word: "-さい",
     meaning: "‌‌‌‌‌-နှစ် (အသက်ကိုဆိုလိုသည်။) ",
-    ch: 1
+    ch: 1,
   },
   {
     word: "なんさい (おいくつ) ",
-    meaning: "ဘယ်နှစ်နှစ်အရွယ်လဲ (おいくつ သည် なんさい ကိုယဉ်ကျေးစွာအလို့ငှာသုံးသည်။)  ",
-    ch: 1
+    meaning:
+      "ဘယ်နှစ်နှစ်အရွယ်လဲ (おいくつ သည် なんさい ကိုယဉ်ကျေးစွာအလို့ငှာသုံးသည်။)  ",
+    ch: 1,
   },
   {
     word: "はい",
     meaning: "ဟုတ်ကဲ့",
-    ch: 1
+    ch: 1,
   },
   {
     word: "いいえ ",
     meaning: "‌ဟင့်အင်း",
-    ch: 1
+    ch: 1,
   },
-{
+  {
     word: "アメリカ",
     meaning: "‌အမေရိက",
-    ch: 1
+    ch: 1,
   },
   {
     word: "イギリス",
     meaning: "အင်္ဂလန်",
-    ch: 1
+    ch: 1,
   },
   {
     word: "インド",
     meaning: "အိန္ဒိယ",
-    ch: 1
+    ch: 1,
   },
   {
     word: "インドネシア",
     meaning: "‌‌‌‌‌အင်ဒိုနီးရှား",
-    ch: 1
+    ch: 1,
   },
   {
     word: "かんこく",
     meaning: "ကိုရီးယား",
-    ch: 1
+    ch: 1,
   },
   {
     word: "タイ",
     meaning: "ထိုင်း/ယိုးဒယား",
-    ch: 1
+    ch: 1,
   },
   {
     word: "ちゅうごく",
     meaning: "‌တရုတ်",
-    ch: 1
-  }, 
+    ch: 1,
+  },
   {
     word: "ドイツ",
     meaning: "‌‌‌ဂျာမနီ",
-    ch: 1
+    ch: 1,
   },
   {
     word: "にほん",
     meaning: "‌‌‌ဂျပန်",
-    ch: 1
+    ch: 1,
   },
   {
     word: "ブラジル",
     meaning: "‌‌‌ဘရာဇီး",
-    ch: 1
+    ch: 1,
+  },
+  {
+    word: "これ",
+    meaning: "ဒီ",
+    ch: 2,
+  },
+  {
+    word: "それ",
+    meaning: "အဲဒီ",
+    ch: 2,
+  },
+  {
+    word: "あれ",
+    meaning: "ဟိုဟာ",
+    ch: 2,
+  },
+  {
+    word: "この",
+    meaning: "ဒီ",
+    ch: 2,
+  },
+  {
+    word: "その",
+    meaning: "အဲဒီ",
+    ch: 2,
+  },
+  {
+    word: "あの",
+    meaning: "ဟို",
+    ch: 2,
+  },
+  {
+    word: "ほん",
+    meaning: "စာအုပ်",
+    ch: 2,
+    image_url: "https://cdn.theatlantic.com/thumbor/JXn_xDwM_S4EwNB8R9zIgay5a8g=/0x0:2000x1125/1952x1098/media/img/mt/2023/07/books_picku_up_put_down_final/original.jpg"
+  },
+  {
+    word: "じしょ",
+    meaning: "အဘိဓာန်",
+    ch: 2,
+    image_url: "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/C1CA/production/_86501694_hi000148611.jpg"
+  },
+  {
+    word: "ざっし",
+    meaning: "မဂ္ဂဇင်း",
+    ch: 2,
+    image_url: "https://cdn.britannica.com/92/191792-050-E1931160/Magazines-display-magazines-Canada-store-Toronto-Ontario.jpg"
+  },
+  {
+    word: "しんぶん",
+    meaning: "သတင်းစာ",
+    ch: 2,
+    image_url: "https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg"
+  },
+  {
+    word: "ノート",
+    meaning: "မှတ်စုစာအုပ် (more flexible and used for general writing or note-taking)",
+    ch: 2,
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Notebooks.jpg",
+  
+  },
+  {
+    word: "てちょう",
+    meaning: "မှတ်စုစာအုပ် ( more structured and designed for planning and organization)",
+    ch: 2,
+    image_url: "https://www.noltyplanners.co.jp/schola/assets/img/schola-program/product-light.png"
+  },
+  {
+    word: "めいし",
+    meaning: "လိပ်စာကတ်",
+    ch: 2,
+    image_url:"https://www.ijgraphics.co.uk/wp-content/uploads/2022/10/AdobeStock_503564354-scaled.jpeg"
+  },
+  {
+    word: "カード",
+    meaning: "(ဘဏ်အပ်ငွေ) ကတ်",
+    ch: 2,
+    image_url: "https://wpblogassets.paytm.com/paytmblog/uploads/2022/01/row200_ATM_What-are-the-Types-of-ATM-Cards-800x500.png"
+  },
+  {
+    word: "えんぴつ",
+    meaning: "ခဲတံ",
+    ch: 2,
+    image_url: "https://miro.medium.com/v2/resize:fit:1400/1*3GBBhRn2pJMPbOG7-7UG2A.png"
+  },
+  {
+    word: "ボールペン",
+    meaning: "ဘောပင်",
+    ch: 2,
+    image_url: "https://mhglobal.com/image/cache/catalog/all_product/Y-9325-550x550.jpg"
+  },
+  {
+    word: "シャープペンシル",
+    meaning: "ခဲတံဘောပင်",
+    ch: 2,
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mechanical_Pencil_Diagram.svg/1200px-Mechanical_Pencil_Diagram.svg.png"
+  },
+  {
+    word: "かぎ",
+    meaning: "သော့",
+    ch: 2,
+    image_url: "https://i.pinimg.com/1200x/09/78/b1/0978b1ab3c09d85f0fa0c110ffe074db.jpg"
+  },
+  {
+    word: "とけい",
+    meaning: "နာရီ",
+    ch: 2,
+    image_url: "https://my-wall-clock.com/cdn/shop/articles/Leonardo_Diffusion_XL_A_bedroom_with_an_alarm_clock_that_emit_0.jpg?v=1706073439"
+  },
+  {
+    word: "かさ",
+    meaning: "ထီး",
+    ch: 2,
+    image_url: "https://t4.ftcdn.net/jpg/14/10/46/43/360_F_1410464378_pAkHkGR2a2afM41NcLtlIgM5MJwcAHPa.jpg"
+  },
+  {
+    word: "かばん",
+    meaning: "အိတ်လွယ်အိတ်",
+    ch: 2,
+    image_url: "https://carrot.itembox.design/item/images/light_soft2/add.jpg"
+  },
+  {
+    word: "CD",
+    meaning: "စီဒီ",
+    ch: 2,
+  },
+  {
+    word: "テレビ",
+    meaning: "ရုပ်မြင်သံကြား",
+    ch: 2,
+  },
+  {
+    word: "ラジオ",
+    meaning: "ရေဒီယို",
+    ch: 2,
+  },
+  {
+    word: "カメラ",
+    meaning: "ကင်မရာ",
+    ch: 2,
+  },
+  {
+    word: "コンピューター",
+    meaning: "ကွန်ပျူတာ",
+    ch: 2,
+  },
+  {
+    word: "くるま",
+    meaning: "ကား (မော်တော်ယာဉ်)",
+    ch: 2,
+  },
+  {
+    word: "つくえ",
+    meaning: "စားပွဲ",
+    ch: 2,
+  },
+  {
+    word: "いす",
+    meaning: "ထိုင်ခုံ",
+    ch: 2,
+  },
+  {
+    word: "チョコレート",
+    meaning: "ချောကလက်",
+    ch: 2,
+  },
+  {
+    word: "コーヒー",
+    meaning: "ကော်ဖီ",
+    ch: 2,
+  },
+  {
+    word: "[お]みやげ",
+    meaning: "အမှတ်လက်ဆောင်",
+    ch: 2,
+  },
+  {
+    word: "えいご",
+    meaning: "အင်္ဂလိပ်စာ",
+    ch: 2,
+  },
+  {
+    word: "にほんご",
+    meaning: "ဂျပန်စာ",
+    ch: 2,
+  },
+  {
+    word: "～ご",
+    meaning: "~ဘာသာ",
+    ch: 2,
+  },
+  {
+    word: "なん",
+    meaning: "ဘာ၊ ဘယ်ဟာ",
+    ch: 2,
+  },
+  {
+    word: "そう",
+    meaning: "အဲဒီလို",
+    ch: 2,
   },
 ];
