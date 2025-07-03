@@ -1067,42 +1067,50 @@ export const list: VocabsList = [
   {
     word: "がくせい",
     meaning: "ကျောင်းသား/ကျောင်းသူ  ",
-    ch: 1
+    ch: 1,
+    image_url: "https://borgenproject.org/wp-content/uploads/Education-in-Japan-1-scaled.jpg"
   },
   {
     word: "かいしゃいん",
     meaning: "‌‌‌‌‌ကုမ္ပဏီဝန်ထမ်း",
-    ch: 1
+    ch: 1,
+    image_url: "https://motto-jp.com/media/wp-content/uploads/2020/03/5-4.jpeg"
   },
   {
     word: "しゃいん",
     meaning: "ဝန်ထမ်း",
-    ch: 1
+    ch: 1,
+    image_url: "https://motto-jp.com/media/wp-content/uploads/2020/03/5-4.jpeg"
   },
   {
     word: "ぎんこういん",
     meaning: "ဘဏ်ဝန်ထမ်း",
-    ch: 1
+    ch: 1,
+    image_url: "https://cdn.yomastrategic.net/public/fmi/contents/uploads/2018/09/17021418/Yoma-Bank1.jpg"
   },
   {
     word: "いしゃ ",
     meaning: "ဆရာဝန် ",
-    ch: 1
+    ch: 1,
+    image_url: "https://cdn001.imggle.net/webp/poster/20240807/1721443316.webp"
   },
   {
     word: "けんきゅうしゃ",
     meaning: "‌သုတေသနပညာရှင်",
-    ch: 1
+    ch: 1,
+    image_url: "https://altum.com/wp-content/uploads/2022/10/Altum_Article2_Assets.jpg"
   },
 {
     word: "だいがく ",
     meaning: "‌တက္ကသိုလ် ",
-    ch: 1
+    ch: 1,
+    image_url: "https://www.careerguide.com/career/wp-content/uploads/2023/11/massachusetts-institute-of-technology-study-abroad.jpg"
   },
   {
     word: "びょういん ",
     meaning: " ဆေးရုံ/ဆေးခန်း  ",
-    ch: 1
+    ch: 1,
+    image_url: "https://indoeuropean.eu/wp-content/uploads/2021/08/best-hospital-in-south-india.jpg"
   },
   {
     word: "だれ (どなた)",

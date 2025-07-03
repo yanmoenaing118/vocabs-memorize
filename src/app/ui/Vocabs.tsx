@@ -242,10 +242,10 @@ export default function Vocabs({
       {/* Modal */}
       {modalState.isOpen && modalState.selectedVocab && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 "
           onClick={handleModalBackdropClick}
         >
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[80vh] overflow-y-auto relative shadow-2xl h-full ">
             {/* Close button */}
             <button
               onClick={closeModal}
@@ -260,7 +260,7 @@ export default function Vocabs({
               <>
                 <button
                   onClick={() => navigateModal("prev")}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  className="absolute left-4 top-[80%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
                   aria-label="Previous vocab"
                 >
                   <ChevronLeftIcon className="w-6 h-6" />
@@ -268,7 +268,7 @@ export default function Vocabs({
 
                 <button
                   onClick={() => navigateModal("next")}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  className="absolute right-4 top-[80%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
                   aria-label="Next vocab"
                 >
                   <ChevronRightIcon className="w-6 h-6" />
@@ -277,10 +277,21 @@ export default function Vocabs({
             )}
 
             {/* Modal content */}
-            <div className="p-6 md:p-8 flex gap-7">
-              {/* Image */}
+            <div className="p-6 md:p-8 flex gap-7 h-full">
+
+              <div className="flex-1 flex items-center justify-center flex-col pl-5 h-full">
+                {/* Word */}
+                <h2 className="text-3xl md:text-4xl font-light mb-4 md:mb-6 text-gray-800 text-center">
+                  {modalState.selectedVocab.word}
+                </h2>
+
+                {/* Meaning */}
+                <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 text-center leading-relaxed">
+                  {modalState.selectedVocab.meaning}
+                </p>
+              </div>
               {modalState.selectedVocab.image_url && (
-                <div className="mb-6">
+                <div className="mb-6 flex-1">
                   <img
                     src={modalState.selectedVocab.image_url}
                     alt={modalState.selectedVocab.word}
@@ -292,17 +303,7 @@ export default function Vocabs({
                   />
                 </div>
               )}
-              <div>
-                {/* Word */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6 text-gray-800 text-center">
-                  {modalState.selectedVocab.word}
-                </h2>
-
-                {/* Meaning */}
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 text-center leading-relaxed">
-                  {modalState.selectedVocab.meaning}
-                </p>
-              </div>
+              
               {/* Navigation indicator */}
               {/* <div className="text-center text-gray-400 text-sm">
                 {modalState.currentIndex + 1} of {set.length}
