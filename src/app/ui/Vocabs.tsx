@@ -57,11 +57,11 @@ export default function Vocabs({
     showMeaning: true,
   });
 
-  // useEffect(() => {
-  //   if (!query.has("ch")) {
-  //     router.replace(`${pathname}?ch=9`);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!query.has("ch")) {
+      router.replace(`${pathname}?ch=1`);
+    }
+  }, []);
 
   // Keyboard navigation for modal
   useEffect(() => {
