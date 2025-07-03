@@ -1,5 +1,6 @@
 import { VocabsList } from "./app/lib/definitions";
 
+
 export const list: VocabsList = [
   {
     word: "きります",
@@ -7,6 +8,7 @@ export const list: VocabsList = [
     hideWord: false,
     hideMeaning: false,
     ch: 7,
+    image_url: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&fit=crop",
   },
   {
     word: "おくります",
@@ -14,6 +16,7 @@ export const list: VocabsList = [
     hideWord: false,
     hideMeaning: false,
     ch: 7,
+    image_url: "https://images.unsplash.com/photo-1566125882500-87e10f726cdc?w=400&h=300&fit=crop",
   },
   {
     word: "あげます",
@@ -21,6 +24,7 @@ export const list: VocabsList = [
     hideWord: false,
     hideMeaning: false,
     ch: 7,
+    image_url: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
   },
   {
     word: "もらいます",
@@ -67,16 +71,19 @@ export const list: VocabsList = [
     word: "はし",
     meaning: "တူ",
     ch: 7,
+    image_url: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop",
   },
   {
     word: "スプーン",
     meaning: "‌ဇွန်း",
     ch: 7,
+    image_url: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop",
   },
   {
     word: "ナイフ",
     meaning: "ဓား",
     ch: 7,
+    image_url: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
   },
   {
     word: "フｵーク",
@@ -822,16 +829,19 @@ export const list: VocabsList = [
     word: "いぬ",
     meaning: "ခွေး",
     ch: 10,
+    image_url: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop",
   },
   {
     word: "ねこ",
     meaning: "ကြောင်",
     ch: 10,
+    image_url: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop",
   },
   {
     word: "パンダ",
     meaning: "ပန်ဒါဝက်ဝံ",
     ch: 10,
+    image_url: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400&h=300&fit=crop",
   },
   {
     word: "ぞう",
@@ -1016,7 +1026,7 @@ export const list: VocabsList = [
   {
     word: "わたし",
     meaning: "ကျွန်ုပ်ကျွန်တော်.ကျွန်မ ",
-    ch: 1
+    ch: 1,
   },
   {
     word: "あなた",
@@ -1051,7 +1061,8 @@ export const list: VocabsList = [
   {
     word: "きょうし",
     meaning: "ကျောင်းဆရာ/နည်းပြဆရာ",
-    ch: 1
+    ch: 1,
+    image_url: "https://t3.ftcdn.net/jpg/03/06/11/82/360_F_306118277_hnc71JmD4u1FfFQuTaCeP9DZiGt6HOMp.jpg"
   },
   {
     word: "がくせい",

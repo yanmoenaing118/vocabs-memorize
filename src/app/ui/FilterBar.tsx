@@ -15,7 +15,7 @@ export default function FilterBar() {
   const { replace } = useRouter();
 
   const getQueryString = (key: string, value: string) => {
-    const parmas = new URLSearchParams(searchParams);
+    const parmas = new URLSearchParams(searchParams.toString());
     if (key && value) {
       parmas.set(key, value);
     }

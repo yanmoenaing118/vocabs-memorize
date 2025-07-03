@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { VocabsList } from "../lib/definitions";
+import { VocabsList, Vocab } from "../lib/definitions";
 import { useEffect, useState } from "react";
 import _, { replace } from "lodash";
 import {
@@ -10,6 +10,8 @@ import {
   HamburgerMenuIcon,
   TrackNextIcon,
   TrackPreviousIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
 } from "@radix-ui/react-icons";
 import Pagination from "./Pagination";
 import ShuffleBar from "./FilterBar";
@@ -38,6 +40,15 @@ export default function Vocabs({
     showWord: true,
   });
 
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean;
+    currentIndex: number;
+    selectedVocab: Vocab | null;
+  }>({
+    isOpen: false,
+    currentIndex: 0,
+    selectedVocab: null,
+  });
 
   useEffect(() => {
     if(!query.has('ch')) {
@@ -45,6 +56,30 @@ export default function Vocabs({
     }
   
   },[])
+
+  // Keyboard navigation for modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!modalState.isOpen) return;
+
+      switch (e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          e.preventDefault();
+          navigateModal('prev');
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          navigateModal('next');
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [modalState.isOpen]);
   const goToPage = (page: number) => {
     const params = new URLSearchParams(query.toString());
     params.set("offset", `${page}`);
@@ -61,8 +96,40 @@ export default function Vocabs({
 
   const toggleMeanings = (isActive: boolean) => {
     setVisibility({ ...visibility, showMeaning: isActive });
+  };
 
+  const openModal = (vocab: Vocab, index: number) => {
+    setModalState({
+      isOpen: true,
+      currentIndex: index,
+      selectedVocab: vocab,
+    });
+  };
 
+  const closeModal = () => {
+    setModalState({
+      isOpen: false,
+      currentIndex: 0,
+      selectedVocab: null,
+    });
+  };
+
+  const navigateModal = (direction: 'prev' | 'next') => {
+    const newIndex = direction === 'next' 
+      ? (modalState.currentIndex + 1) % set.length
+      : (modalState.currentIndex - 1 + set.length) % set.length;
+    
+    setModalState({
+      ...modalState,
+      currentIndex: newIndex,
+      selectedVocab: set[newIndex],
+    });
+  };
+
+  const handleModalBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
   };
 
   return (
@@ -108,10 +175,11 @@ export default function Vocabs({
       <div className="min-h-screen">
         {set.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-            {set.map((item) => (
+            {set.map((item, index) => (
               <div
                 key={item.word + item.ch}
-                className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg"
+                className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg cursor-pointer hover:bg-opacity-30 transition-all"
+                onClick={() => openModal(item, index)}
               >
                 <h1
                   className={clsx(
@@ -172,6 +240,84 @@ export default function Vocabs({
 
         <ShuffleBar />
       </div>
+
+      {/* Modal */}
+      {modalState.isOpen && modalState.selectedVocab && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={handleModalBackdropClick}
+        >
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl">
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full z-10 transition-colors"
+              aria-label="Close modal"
+            >
+              <Cross1Icon className="w-6 h-6" />
+            </button>
+
+            {/* Navigation buttons */}
+            {set.length > 1 && (
+              <>
+                <button
+                  onClick={() => navigateModal('prev')}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  aria-label="Previous vocab"
+                >
+                  <ChevronLeftIcon className="w-6 h-6" />
+                </button>
+
+                <button
+                  onClick={() => navigateModal('next')}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  aria-label="Next vocab"
+                >
+                  <ChevronRightIcon className="w-6 h-6" />
+                </button>
+              </>
+            )}
+
+            {/* Modal content */}
+            <div className="p-6 md:p-8">
+              {/* Image */}
+              {modalState.selectedVocab.image_url && (
+                <div className="mb-6">
+                  <img
+                    src={modalState.selectedVocab.image_url}
+                    alt={modalState.selectedVocab.word}
+                    className="w-full h-48 md:h-64 lg:h-80 rounded-lg shadow-md object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Word */}
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6 text-gray-800 text-center">
+                {modalState.selectedVocab.word}
+              </h2>
+
+              {/* Meaning */}
+              <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 text-center leading-relaxed">
+                {modalState.selectedVocab.meaning}
+              </p>
+
+              {/* Navigation indicator */}
+              <div className="text-center text-gray-400 text-sm">
+                {modalState.currentIndex + 1} of {set.length}
+                {set.length > 1 && (
+                  <div className="mt-2 text-xs text-gray-400">
+                    Use arrow keys or buttons to navigate
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

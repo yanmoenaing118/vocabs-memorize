@@ -12,13 +12,14 @@ export type PropVocabSearchQuery = Partial<{
   count: number
 }>;
 
-type Vocab = {
+export type Vocab = {
   word: string;
   meaning: string;
   hideWord?: boolean;
   hideMeaning?: boolean;
   conversation?: boolean;
   ch: number;
+  image_url?: string;
 };
 
 export type VocabsList = Vocab[];
