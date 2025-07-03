@@ -51,11 +51,10 @@ export default function Vocabs({
   });
 
   useEffect(() => {
-    if(!query.has('ch')) {
-      router.replace(`${pathname}?ch=9`)
+    if (!query.has("ch")) {
+      router.replace(`${pathname}?ch=9`);
     }
-  
-  },[])
+  }, []);
 
   // Keyboard navigation for modal
   useEffect(() => {
@@ -63,22 +62,22 @@ export default function Vocabs({
       if (!modalState.isOpen) return;
 
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           closeModal();
           break;
-        case 'ArrowLeft':
+        case "ArrowLeft":
           e.preventDefault();
-          navigateModal('prev');
+          navigateModal("prev");
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           e.preventDefault();
-          navigateModal('next');
+          navigateModal("next");
           break;
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [modalState.isOpen]);
   const goToPage = (page: number) => {
     const params = new URLSearchParams(query.toString());
@@ -89,9 +88,7 @@ export default function Vocabs({
   const [openFilter, setOpenFilter] = useState(false);
 
   const toggleWords = (isActive: boolean) => {
-
     setVisibility({ ...visibility, showWord: isActive });
-
   };
 
   const toggleMeanings = (isActive: boolean) => {
@@ -114,11 +111,12 @@ export default function Vocabs({
     });
   };
 
-  const navigateModal = (direction: 'prev' | 'next') => {
-    const newIndex = direction === 'next' 
-      ? (modalState.currentIndex + 1) % set.length
-      : (modalState.currentIndex - 1 + set.length) % set.length;
-    
+  const navigateModal = (direction: "prev" | "next") => {
+    const newIndex =
+      direction === "next"
+        ? (modalState.currentIndex + 1) % set.length
+        : (modalState.currentIndex - 1 + set.length) % set.length;
+
     setModalState({
       ...modalState,
       currentIndex: newIndex,
@@ -243,7 +241,7 @@ export default function Vocabs({
 
       {/* Modal */}
       {modalState.isOpen && modalState.selectedVocab && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
           onClick={handleModalBackdropClick}
         >
@@ -261,7 +259,7 @@ export default function Vocabs({
             {set.length > 1 && (
               <>
                 <button
-                  onClick={() => navigateModal('prev')}
+                  onClick={() => navigateModal("prev")}
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
                   aria-label="Previous vocab"
                 >
@@ -269,7 +267,7 @@ export default function Vocabs({
                 </button>
 
                 <button
-                  onClick={() => navigateModal('next')}
+                  onClick={() => navigateModal("next")}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
                   aria-label="Next vocab"
                 >
@@ -279,41 +277,41 @@ export default function Vocabs({
             )}
 
             {/* Modal content */}
-            <div className="p-6 md:p-8">
+            <div className="p-6 md:p-8 flex gap-7">
               {/* Image */}
               {modalState.selectedVocab.image_url && (
                 <div className="mb-6">
                   <img
                     src={modalState.selectedVocab.image_url}
                     alt={modalState.selectedVocab.word}
-                    className="w-full h-48 md:h-64 lg:h-80 rounded-lg shadow-md object-contain"
+                    className="max-w-[30vw] h-48 md:h-64 lg:h-[70vh] rounded-lg object-contain"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
+                      target.style.display = "none";
                     }}
                   />
                 </div>
               )}
+              <div>
+                {/* Word */}
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6 text-gray-800 text-center">
+                  {modalState.selectedVocab.word}
+                </h2>
 
-              {/* Word */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6 text-gray-800 text-center">
-                {modalState.selectedVocab.word}
-              </h2>
-
-              {/* Meaning */}
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 text-center leading-relaxed">
-                {modalState.selectedVocab.meaning}
-              </p>
-
+                {/* Meaning */}
+                <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 text-center leading-relaxed">
+                  {modalState.selectedVocab.meaning}
+                </p>
+              </div>
               {/* Navigation indicator */}
-              <div className="text-center text-gray-400 text-sm">
+              {/* <div className="text-center text-gray-400 text-sm">
                 {modalState.currentIndex + 1} of {set.length}
                 {set.length > 1 && (
                   <div className="mt-2 text-xs text-gray-400">
                     Use arrow keys or buttons to navigate
                   </div>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

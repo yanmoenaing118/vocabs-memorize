@@ -1062,7 +1062,7 @@ export const list: VocabsList = [
     word: "きょうし",
     meaning: "ကျောင်းဆရာ/နည်းပြဆရာ",
     ch: 1,
-    image_url: "https://t3.ftcdn.net/jpg/03/06/11/82/360_F_306118277_hnc71JmD4u1FfFQuTaCeP9DZiGt6HOMp.jpg"
+    image_url: "https://c4.wallpaperflare.com/wallpaper/630/817/72/asian-teachers-model-black-miniskirt-red-lipstick-hd-wallpaper-preview.jpg"
   },
   {
     word: "がくせい",
