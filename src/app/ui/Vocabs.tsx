@@ -50,6 +50,13 @@ export default function Vocabs({
     selectedVocab: null,
   });
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+  const [modalVisibility, setModalVisibility] = useState({
+    showWord: true,
+    showMeaning: true,
+  });
+
   useEffect(() => {
     if (!query.has("ch")) {
       router.replace(`${pathname}?ch=9`);
@@ -96,6 +103,7 @@ export default function Vocabs({
   };
 
   const openModal = (vocab: Vocab, index: number) => {
+    setImageLoaded(false); // Reset image loaded state when opening modal
     setModalState({
       isOpen: true,
       currentIndex: index,
@@ -117,6 +125,7 @@ export default function Vocabs({
         ? (modalState.currentIndex + 1) % set.length
         : (modalState.currentIndex - 1 + set.length) % set.length;
 
+    setImageLoaded(false); // Reset image loaded state when navigating
     setModalState({
       ...modalState,
       currentIndex: newIndex,
@@ -255,6 +264,39 @@ export default function Vocabs({
               <Cross1Icon className="w-6 h-6" />
             </button>
 
+            {/* Visibility controls */}
+            <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
+              <label className="flex items-center gap-2 bg-white bg-opacity-90 px-3 py-2 rounded-lg shadow-sm">
+                <input
+                  type="checkbox"
+                  checked={modalVisibility.showWord}
+                  onChange={(e) =>
+                    setModalVisibility({
+                      ...modalVisibility,
+                      showWord: e.target.checked,
+                    })
+                  }
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                />
+                <span className="text-sm font-medium text-gray-700">Show Word</span>
+              </label>
+              
+              <label className="flex items-center gap-2 bg-white bg-opacity-90 px-3 py-2 rounded-lg shadow-sm">
+                <input
+                  type="checkbox"
+                  checked={modalVisibility.showMeaning}
+                  onChange={(e) =>
+                    setModalVisibility({
+                      ...modalVisibility,
+                      showMeaning: e.target.checked,
+                    })
+                  }
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                />
+                <span className="text-sm font-medium text-gray-700">Show Meaning</span>
+              </label>
+            </div>
+
             {/* Navigation buttons */}
             {set.length > 1 && (
               <>
@@ -278,24 +320,35 @@ export default function Vocabs({
 
             {/* Modal content */}
             <div className="p-6 md:p-8 flex gap-7 h-full">
-
               <div className="flex-1 flex items-center justify-center flex-col pl-5 h-full">
                 {/* Word */}
-                <h2 className="text-3xl md:text-4xl font-light mb-4 md:mb-6 text-gray-800 text-center">
-                  {modalState.selectedVocab.word}
-                </h2>
+                {modalVisibility.showWord && (
+                  <h2 className="text-3xl md:text-4xl font-light mb-4 md:mb-6 text-gray-800 text-center transition-opacity duration-300">
+                    {modalState.selectedVocab.word}
+                  </h2>
+                )}
 
                 {/* Meaning */}
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 text-center leading-relaxed">
-                  {modalState.selectedVocab.meaning}
-                </p>
+                {modalVisibility.showMeaning && (
+                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 text-center leading-relaxed transition-opacity duration-300">
+                    {modalState.selectedVocab.meaning}
+                  </p>
+                )}
               </div>
               {modalState.selectedVocab.image_url && (
                 <div className="mb-6 flex-1">
                   <img
+                    key={modalState.selectedVocab.word + modalState.selectedVocab.ch} // Force re-render on vocab change
                     src={modalState.selectedVocab.image_url}
                     alt={modalState.selectedVocab.word}
-                    className="max-w-[30vw] h-48 md:h-64 lg:h-[70vh] rounded-lg object-contain"
+                    className={clsx(
+                      "max-w-[30vw] h-48 md:h-64 lg:h-[70vh] rounded-lg object-contain transition-opacity duration-300 ease-in-out",
+                      {
+                        "opacity-100": imageLoaded,
+                        "opacity-0": !imageLoaded,
+                      }
+                    )}
+                    onLoad={() => setImageLoaded(true)}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = "none";
