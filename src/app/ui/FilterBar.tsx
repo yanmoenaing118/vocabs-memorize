@@ -93,9 +93,9 @@ const ItemsPerPageSelector = ({ value, onSelected }: any) => {
     <>
       <div className="text-white underline mb-1">Items per page</div>
       <Select value={value} width="120px" onValueChange={onSelected}>
-        {[3, 6, 9, 12, 15, 18, 21].map((no) => (
+        {[-1, 3, 6, 9, 12, 15, 18, 21].map((no) => (
           <SelectItem value={no} key={no}>
-            <span className="text-black px-2.5 text-sm">{no}</span>
+            <span className="text-black px-2.5 text-sm">{no == -1 ? "All" : no}</span>
           </SelectItem>
         ))}
       </Select>

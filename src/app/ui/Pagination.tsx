@@ -2,6 +2,7 @@
 
 import { TrackNextIcon, TrackPreviousIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
+import { useSearchParams } from "next/navigation";
 
 export default function Pagination({
   totalItems,
@@ -13,7 +14,11 @@ export default function Pagination({
   const totalPage = Math.round(totalItems / itemsPerPage);
   const nextPage = Math.min(Number(currentPage) + 1, totalPage + 1);
   const prevPage = Math.max(Number(currentPage) - 1, 0);
-  console.log(totalPage)
+  const searchParams = useSearchParams();
+  const count = Number(searchParams.get("count") || 6);
+  if(count === -1) {
+    return null;
+  }
   return (
     <div className="text-white flex gap-3 items-center">
       <button

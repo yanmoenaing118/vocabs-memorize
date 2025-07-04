@@ -1237,92 +1237,107 @@ export const list: VocabsList = [
     word: "ほん",
     meaning: "စာအုပ်",
     ch: 2,
-    image_url: "https://cdn.theatlantic.com/thumbor/JXn_xDwM_S4EwNB8R9zIgay5a8g=/0x0:2000x1125/1952x1098/media/img/mt/2023/07/books_picku_up_put_down_final/original.jpg"
+    image_url:
+      "https://cdn.theatlantic.com/thumbor/JXn_xDwM_S4EwNB8R9zIgay5a8g=/0x0:2000x1125/1952x1098/media/img/mt/2023/07/books_picku_up_put_down_final/original.jpg",
   },
   {
     word: "じしょ",
     meaning: "အဘိဓာန်",
     ch: 2,
-    image_url: "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/C1CA/production/_86501694_hi000148611.jpg"
+    image_url:
+      "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/C1CA/production/_86501694_hi000148611.jpg",
   },
   {
     word: "ざっし",
     meaning: "မဂ္ဂဇင်း",
     ch: 2,
-    image_url: "https://cdn.britannica.com/92/191792-050-E1931160/Magazines-display-magazines-Canada-store-Toronto-Ontario.jpg"
+    image_url:
+      "https://cdn.britannica.com/92/191792-050-E1931160/Magazines-display-magazines-Canada-store-Toronto-Ontario.jpg",
   },
   {
     word: "しんぶん",
     meaning: "သတင်းစာ",
     ch: 2,
-    image_url: "https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg"
+    image_url:
+      "https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg",
   },
   {
     word: "ノート",
-    meaning: "မှတ်စုစာအုပ် (more flexible and used for general writing or note-taking)",
+    meaning:
+      "မှတ်စုစာအုပ် (more flexible and used for general writing or note-taking)",
     ch: 2,
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Notebooks.jpg",
-  
+    image_url:
+      "https://upload.wikimedia.org/wikipedia/commons/e/ea/Notebooks.jpg",
   },
   {
     word: "てちょう",
-    meaning: "မှတ်စုစာအုပ် ( more structured and designed for planning and organization)",
+    meaning:
+      "မှတ်စုစာအုပ် ( more structured and designed for planning and organization)",
     ch: 2,
-    image_url: "https://www.noltyplanners.co.jp/schola/assets/img/schola-program/product-light.png"
+    image_url:
+      "https://www.noltyplanners.co.jp/schola/assets/img/schola-program/product-light.png",
   },
   {
     word: "めいし",
     meaning: "လိပ်စာကတ်",
     ch: 2,
-    image_url:"https://www.ijgraphics.co.uk/wp-content/uploads/2022/10/AdobeStock_503564354-scaled.jpeg"
+    image_url:
+      "https://www.ijgraphics.co.uk/wp-content/uploads/2022/10/AdobeStock_503564354-scaled.jpeg",
   },
   {
     word: "カード",
     meaning: "(ဘဏ်အပ်ငွေ) ကတ်",
     ch: 2,
-    image_url: "https://wpblogassets.paytm.com/paytmblog/uploads/2022/01/row200_ATM_What-are-the-Types-of-ATM-Cards-800x500.png"
+    image_url:
+      "https://wpblogassets.paytm.com/paytmblog/uploads/2022/01/row200_ATM_What-are-the-Types-of-ATM-Cards-800x500.png",
   },
   {
     word: "えんぴつ",
     meaning: "ခဲတံ",
     ch: 2,
-    image_url: "https://miro.medium.com/v2/resize:fit:1400/1*3GBBhRn2pJMPbOG7-7UG2A.png"
+    image_url:
+      "https://miro.medium.com/v2/resize:fit:1400/1*3GBBhRn2pJMPbOG7-7UG2A.png",
   },
   {
     word: "ボールペン",
     meaning: "ဘောပင်",
     ch: 2,
-    image_url: "https://mhglobal.com/image/cache/catalog/all_product/Y-9325-550x550.jpg"
+    image_url:
+      "https://mhglobal.com/image/cache/catalog/all_product/Y-9325-550x550.jpg",
   },
   {
     word: "シャープペンシル",
     meaning: "ခဲတံဘောပင်",
     ch: 2,
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mechanical_Pencil_Diagram.svg/1200px-Mechanical_Pencil_Diagram.svg.png"
+    image_url:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mechanical_Pencil_Diagram.svg/1200px-Mechanical_Pencil_Diagram.svg.png",
   },
   {
     word: "かぎ",
     meaning: "သော့",
     ch: 2,
-    image_url: "https://i.pinimg.com/1200x/09/78/b1/0978b1ab3c09d85f0fa0c110ffe074db.jpg"
+    image_url:
+      "https://i.pinimg.com/1200x/09/78/b1/0978b1ab3c09d85f0fa0c110ffe074db.jpg",
   },
   {
     word: "とけい",
     meaning: "နာရီ",
     ch: 2,
-    image_url: "https://my-wall-clock.com/cdn/shop/articles/Leonardo_Diffusion_XL_A_bedroom_with_an_alarm_clock_that_emit_0.jpg?v=1706073439"
+    image_url:
+      "https://my-wall-clock.com/cdn/shop/articles/Leonardo_Diffusion_XL_A_bedroom_with_an_alarm_clock_that_emit_0.jpg?v=1706073439",
   },
   {
     word: "かさ",
     meaning: "ထီး",
     ch: 2,
-    image_url: "https://t4.ftcdn.net/jpg/14/10/46/43/360_F_1410464378_pAkHkGR2a2afM41NcLtlIgM5MJwcAHPa.jpg"
+    image_url:
+      "https://t4.ftcdn.net/jpg/14/10/46/43/360_F_1410464378_pAkHkGR2a2afM41NcLtlIgM5MJwcAHPa.jpg",
   },
   {
     word: "かばん",
     meaning: "အိတ်လွယ်အိတ်",
     ch: 2,
-    image_url: "https://carrot.itembox.design/item/images/light_soft2/add.jpg"
+    image_url: "https://carrot.itembox.design/item/images/light_soft2/add.jpg",
   },
   {
     word: "CD",
@@ -1333,44 +1348,50 @@ export const list: VocabsList = [
     word: "テレビ",
     meaning: "ရုပ်မြင်သံကြား",
     ch: 2,
-    image_url: "https://cdn.thewirecutter.com/wp-content/media/2024/08/lcdledtvs-2048px-samsungqn90Ddetail.jpg?auto=webp&quality=75&width=1024"
+    image_url:
+      "https://cdn.thewirecutter.com/wp-content/media/2024/08/lcdledtvs-2048px-samsungqn90Ddetail.jpg?auto=webp&quality=75&width=1024",
   },
   {
     word: "ラジオ",
     meaning: "ရေဒီယို",
     ch: 2,
-    image_url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivcR3kJddok0MgXnXu-CMKwWe9Kh5bWNfMH5dBfNeiw38365KYH8rQAzAa2HmuJhYFvfR84321tKZSyG8b5VJEXYtjai26e3nBTxOz5ORKIyyeEDMmcnxcY1S1FcvN33U7sXwnp0WQ09g/s1600/radio.png"
+    image_url:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivcR3kJddok0MgXnXu-CMKwWe9Kh5bWNfMH5dBfNeiw38365KYH8rQAzAa2HmuJhYFvfR84321tKZSyG8b5VJEXYtjai26e3nBTxOz5ORKIyyeEDMmcnxcY1S1FcvN33U7sXwnp0WQ09g/s1600/radio.png",
   },
   {
     word: "カメラ",
     meaning: "ကင်မရာ",
     ch: 2,
-    image_url: "https://img.freepik.com/free-psd/sleek-black-dslr-camera-with-large-lens-is-shown-against-transparent-background-ideal-photography-videography-projects_632498-28557.jpg?semt=ais_hybrid&w=740"
+    image_url:
+      "https://img.freepik.com/free-psd/sleek-black-dslr-camera-with-large-lens-is-shown-against-transparent-background-ideal-photography-videography-projects_632498-28557.jpg?semt=ais_hybrid&w=740",
   },
   {
     word: "コンピューター",
     meaning: "ကွန်ပျူတာ",
     ch: 2,
-    image_url: "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg"
+    image_url:
+      "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg",
   },
   {
     word: "くるま",
     meaning: "ကား (မော်တော်ယာဉ်)",
     ch: 2,
-    image_url: "https://www.autoshippers.co.uk/blog/wp-content/uploads/bugatti-centodieci.jpg"
+    image_url:
+      "https://www.autoshippers.co.uk/blog/wp-content/uploads/bugatti-centodieci.jpg",
   },
   {
     word: "つくえ",
     meaning: "စားပွဲ",
     ch: 2,
-    image_url: "https://img.freepik.com/premium-vector/illustration-wooden-dining-table-isolated_756535-8226.jpg?semt=ais_items_boosted&w=740"
-
+    image_url:
+      "https://img.freepik.com/premium-vector/illustration-wooden-dining-table-isolated_756535-8226.jpg?semt=ais_items_boosted&w=740",
   },
   {
     word: "いす",
     meaning: "ထိုင်ခုံ",
     ch: 2,
-    image_url: "https://img.freepik.com/premium-vector/chair-vector-illustration_642458-98.jpg"
+    image_url:
+      "https://img.freepik.com/premium-vector/chair-vector-illustration_642458-98.jpg",
   },
   {
     word: "チョコレート",
@@ -1386,7 +1407,8 @@ export const list: VocabsList = [
     word: "[お]みやげ",
     meaning: "‌အမှတ်တရပစ္စည်း",
     ch: 2,
-    image_url: "https://blog.airbaltic.com/wp-content/uploads/2020/01/header-souvenirs-600x360.jpg"
+    image_url:
+      "https://blog.airbaltic.com/wp-content/uploads/2020/01/header-souvenirs-600x360.jpg",
   },
   {
     word: "えいご",
@@ -1412,5 +1434,220 @@ export const list: VocabsList = [
     word: "そう",
     meaning: "အဲဒီလို",
     ch: 2,
+  },
+  {
+    word: "ここ",
+    meaning: "ဒီနေရာ",
+    ch: 3,
+  },
+  {
+    word: "そこ",
+    meaning: "အဲဒီနေရာ",
+    ch: 3,
+  },
+  {
+    word: "あそこ",
+    meaning: "ဟိုနေရာ",
+    ch: 3,
+  },
+  {
+    word: "どこ",
+    meaning: "ဘယ်နေရာ",
+    ch: 3,
+  },
+  {
+    word: "こちら",
+    meaning: "ဒီဘက်",
+    ch: 3,
+  },
+  {
+    word: "そちら",
+    meaning: "အဲဒီဘက်",
+    ch: 3,
+  },
+  {
+    word: "あちら",
+    meaning: "ဟိုဘက်",
+    ch: 3,
+  },
+  {
+    word: "どちら",
+    meaning: "ဘယ်ဘက်",
+    ch: 3,
+  },
+  {
+    word: "きょうしつ",
+    meaning: "စာသင်ခန်း",
+    ch: 3,
+  },
+  {
+    word: "しょくどう",
+    meaning: "ထမင်းစားဆောင်",
+    ch: 3,
+  },
+  {
+    word: "じむしょ",
+    meaning: "ရုံးခန်း",
+    ch: 3,
+  },
+  {
+    word: "かいぎしつ",
+    meaning: "အစည်းအဝေးခန်း",
+    ch: 3,
+  },
+  {
+    word: "うけつけ",
+    meaning: "ဧည့်ကြိုကောင်တာ",
+    ch: 3,
+  },
+  {
+    word: "ロビー",
+    meaning: "နားရုံခန်း",
+    ch: 3,
+  },
+  {
+    word: "へや",
+    meaning: "အခန်း",
+    ch: 3,
+  },
+  {
+    word: "トイレ（おてあらい）",
+    meaning: "အိမ်သာ (သန့်စင်ခန်း)",
+    ch: 3,
+  },
+  {
+    word: "かいだん",
+    meaning: "လှေကား",
+    ch: 3,
+  },
+  {
+    word: "エレベーター",
+    meaning: "တက်လှေကား",
+    ch: 3,
+  },
+  {
+    word: "エスカレーター",
+    meaning: "စက်လှေကား",
+    ch: 3,
+  },
+  {
+    word: "じどうはんばいき",
+    meaning: "အလိုအလျောက်ရောင်းစက်",
+    ch: 3,
+  },
+  {
+    word: "でんわ",
+    meaning: "တယ်လီဖုန်း",
+    ch: 3,
+  },
+  {
+    word: "[お]くに",
+    meaning: "နိုင်ငံ (ဖွဲ့စည်းထားသောပုံစံ)",
+    ch: 3,
+  },
+  {
+    word: "かいしゃ",
+    meaning: "ကုမ္ပဏီ",
+    ch: 3,
+  },
+  {
+    word: "うち",
+    meaning: "အိမ်",
+    ch: 3,
+  },
+  {
+    word: "くつ",
+    meaning: "ဖိနပ်",
+    ch: 3,
+  },
+  {
+    word: "ネクタイ",
+    meaning: "နက်ကတိုင်",
+    ch: 3,
+  },
+  {
+    word: "ワイン",
+    meaning: "ဝိုင်အရက်",
+    ch: 3,
+  },
+  {
+    word: "うりば",
+    meaning: "အရောင်း (ပစ္စည်းတင်ထားသောနေရာ)",
+    ch: 3,
+  },
+  {
+    word: "ちか",
+    meaning: "မြေအောက်",
+    ch: 3,
+  },
+  {
+    word: "いっかい（がい）",
+    meaning: "တစ်ထပ်",
+    ch: 3,
+  },
+  {
+    word: "なんがい",
+    meaning: "ဘယ်နှစ်ထပ်",
+    ch: 3,
+  },
+  {
+    word: "いちえん",
+    meaning: "ယန်း/ယန်",
+    ch: 3,
+  },
+  {
+    word: "いくら",
+    meaning: "ဘယ်လောက် (ငွေတန်ဖိုး)",
+    ch: 3,
+  },
+  {
+    word: "ひゃく",
+    meaning: "တစ်ရာ",
+    ch: 3,
+  },
+  {
+    word: "せん",
+    meaning: "တစ်ထောင်",
+    ch: 3,
+  },
+  {
+    word: "まん",
+    meaning: "တစ်သောင်း",
+    ch: 3,
+  },
+  {
+    word: "イタリア",
+    meaning: "အီတလီ",
+    ch: 3,
+  },
+  {
+    word: "スイス",
+    meaning: "ဆွစ်ဇာလန်",
+    ch: 3,
+  },
+  {
+    word: "フランス",
+    meaning: "ပြင်သစ်",
+    ch: 3,
+  },
+  {
+    word: "ジャカルタ",
+    meaning: "ဂျာကာတာ",
+    ch: 3,
+  },
+  {
+    word: "バンコク",
+    meaning: "ဘန်ကောက်",
+    ch: 3,
+  },
+  {
+    word: "ベルリン",
+    meaning: "ဘာလင်",
+    ch: 3,
+  },
+  {
+    word: "しんおおさか",
+    meaning: "ရှင်းအိုဆာကာ",
+    ch: 3,
   },
 ];

@@ -13,7 +13,7 @@ export const getVocabList = async (query: PropVocabSearchQuery) => {
   const count = Number(query.count || 6);
   let res = list.filter((item) => item.ch === Number(query.ch));
 
-  res = res.slice(offset * count, count * offset + count);
+  res = Number(query.count) === -1 ? res : res.slice(offset * count, count * offset + count);
   return res;
 };
 
