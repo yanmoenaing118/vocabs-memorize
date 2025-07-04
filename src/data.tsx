@@ -1333,36 +1333,44 @@ export const list: VocabsList = [
     word: "テレビ",
     meaning: "ရုပ်မြင်သံကြား",
     ch: 2,
+    image_url: "https://cdn.thewirecutter.com/wp-content/media/2024/08/lcdledtvs-2048px-samsungqn90Ddetail.jpg?auto=webp&quality=75&width=1024"
   },
   {
     word: "ラジオ",
     meaning: "ရေဒီယို",
     ch: 2,
+    image_url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivcR3kJddok0MgXnXu-CMKwWe9Kh5bWNfMH5dBfNeiw38365KYH8rQAzAa2HmuJhYFvfR84321tKZSyG8b5VJEXYtjai26e3nBTxOz5ORKIyyeEDMmcnxcY1S1FcvN33U7sXwnp0WQ09g/s1600/radio.png"
   },
   {
     word: "カメラ",
     meaning: "ကင်မရာ",
     ch: 2,
+    image_url: "https://img.freepik.com/free-psd/sleek-black-dslr-camera-with-large-lens-is-shown-against-transparent-background-ideal-photography-videography-projects_632498-28557.jpg?semt=ais_hybrid&w=740"
   },
   {
     word: "コンピューター",
     meaning: "ကွန်ပျူတာ",
     ch: 2,
+    image_url: "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg"
   },
   {
     word: "くるま",
     meaning: "ကား (မော်တော်ယာဉ်)",
     ch: 2,
+    image_url: "https://www.autoshippers.co.uk/blog/wp-content/uploads/bugatti-centodieci.jpg"
   },
   {
     word: "つくえ",
     meaning: "စားပွဲ",
     ch: 2,
+    image_url: "https://img.freepik.com/premium-vector/illustration-wooden-dining-table-isolated_756535-8226.jpg?semt=ais_items_boosted&w=740"
+
   },
   {
     word: "いす",
     meaning: "ထိုင်ခုံ",
     ch: 2,
+    image_url: "https://img.freepik.com/premium-vector/chair-vector-illustration_642458-98.jpg"
   },
   {
     word: "チョコレート",
@@ -1376,8 +1384,9 @@ export const list: VocabsList = [
   },
   {
     word: "[お]みやげ",
-    meaning: "အမှတ်လက်ဆောင်",
+    meaning: "‌အမှတ်တရပစ္စည်း",
     ch: 2,
+    image_url: "https://blog.airbaltic.com/wp-content/uploads/2020/01/header-souvenirs-600x360.jpg"
   },
   {
     word: "えいご",
