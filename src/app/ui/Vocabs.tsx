@@ -302,7 +302,7 @@ export default function Vocabs({
               <>
                 <button
                   onClick={() => navigateModal("prev")}
-                  className="absolute left-4 top-[80%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  className="absolute left-[40%] top-[85%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
                   aria-label="Previous vocab"
                 >
                   <ChevronLeftIcon className="w-6 h-6" />
@@ -310,7 +310,7 @@ export default function Vocabs({
 
                 <button
                   onClick={() => navigateModal("next")}
-                  className="absolute right-4 top-[80%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  className="absolute right-[40%] top-[85%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
                   aria-label="Next vocab"
                 >
                   <ChevronRightIcon className="w-6 h-6" />
