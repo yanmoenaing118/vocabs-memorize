@@ -51,7 +51,7 @@ export default function Vocabs({
   });
 
   const [imageLoaded, setImageLoaded] = useState(false);
-  
+
   const [modalVisibility, setModalVisibility] = useState({
     showWord: true,
     showMeaning: true,
@@ -278,9 +278,11 @@ export default function Vocabs({
                   }
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                 />
-                <span className="text-sm font-medium text-gray-700">Show Word</span>
+                <span className="text-sm font-medium text-gray-700">
+                  Word
+                </span>
               </label>
-              
+
               <label className="flex items-center gap-2 bg-white bg-opacity-90 px-3 py-2 rounded-lg shadow-sm">
                 <input
                   type="checkbox"
@@ -293,7 +295,9 @@ export default function Vocabs({
                   }
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                 />
-                <span className="text-sm font-medium text-gray-700">Show Meaning</span>
+                <span className="text-sm font-medium text-gray-700">
+                  Meaning
+                </span>
               </label>
             </div>
 
@@ -302,7 +306,7 @@ export default function Vocabs({
               <>
                 <button
                   onClick={() => navigateModal("prev")}
-                  className="absolute left-[40%] top-[85%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  className="absolute right-[20%] bottom-[10%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg opacity-70"
                   aria-label="Previous vocab"
                 >
                   <ChevronLeftIcon className="w-6 h-6" />
@@ -310,7 +314,7 @@ export default function Vocabs({
 
                 <button
                   onClick={() => navigateModal("next")}
-                  className="absolute right-[40%] top-[85%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg"
+                  className="absolute right-[5%] bottom-[10%] transform  p-3 hover:bg-gray-100 rounded-full z-10 transition-colors bg-white shadow-lg opacity-70"
                   aria-label="Next vocab"
                 >
                   <ChevronRightIcon className="w-6 h-6" />
@@ -319,8 +323,37 @@ export default function Vocabs({
             )}
 
             {/* Modal content */}
-            <div className="p-6 md:p-8 flex gap-7 h-full">
-              <div className="flex-1 flex items-center justify-center flex-col pl-5 h-full">
+            <div className="h-full">
+              {modalState.selectedVocab.image_url && (
+                <div className="mb-2 flex-1 h-[70%] sm:w-[350px] md:w-[600px] mx-auto">
+                  <img
+                    key={
+                      modalState.selectedVocab.word +
+                      modalState.selectedVocab.ch
+                    } // Force re-render on vocab change
+                    src={modalState.selectedVocab.image_url}
+                    alt={modalState.selectedVocab.word}
+                    className={clsx(
+                      "transition-opacity duration-300 ease-in-out max-h-[100%] object-contain w-full h-full",
+                      {
+                        "opacity-100": imageLoaded,
+                        "opacity-0": !imageLoaded,
+                      }
+                    )}
+                    onLoad={() => setImageLoaded(true)}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = "none";
+                    }}
+                  />
+                </div>
+              )}
+
+              <div className={"flex-1 flex items-center justify-center flex-col mt-7 px-4"}
+              style={{
+                height: modalState.selectedVocab.image_url ? "auto" : "100%",
+              }}
+              >
                 {/* Word */}
                 {modalVisibility.showWord && (
                   <h2 className="text-3xl md:text-4xl font-light mb-4 md:mb-6 text-gray-800 text-center transition-opacity duration-300">
@@ -335,28 +368,7 @@ export default function Vocabs({
                   </p>
                 )}
               </div>
-              {modalState.selectedVocab.image_url && (
-                <div className="mb-6 flex-1">
-                  <img
-                    key={modalState.selectedVocab.word + modalState.selectedVocab.ch} // Force re-render on vocab change
-                    src={modalState.selectedVocab.image_url}
-                    alt={modalState.selectedVocab.word}
-                    className={clsx(
-                      "max-w-[30vw] h-48 md:h-64 lg:h-[70vh] rounded-lg object-contain transition-opacity duration-300 ease-in-out",
-                      {
-                        "opacity-100": imageLoaded,
-                        "opacity-0": !imageLoaded,
-                      }
-                    )}
-                    onLoad={() => setImageLoaded(true)}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = "none";
-                    }}
-                  />
-                </div>
-              )}
-              
+
               {/* Navigation indicator */}
               {/* <div className="text-center text-gray-400 text-sm">
                 {modalState.currentIndex + 1} of {set.length}
