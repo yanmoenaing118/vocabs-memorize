@@ -1331,7 +1331,7 @@ export const list: VocabsList = [
     meaning: "ထီး",
     ch: 2,
     image_url:
-      "https://t4.ftcdn.net/jpg/14/10/46/43/360_F_1410464378_pAkHkGR2a2afM41NcLtlIgM5MJwcAHPa.jpg",
+      "https://img.freepik.com/free-vector/realistic-blue-umbrella_1284-11412.jpg?semt=ais_hybrid&w=740",
   },
   {
     word: "かばん",
