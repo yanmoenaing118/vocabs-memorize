@@ -1482,7 +1482,7 @@ export const list: VocabsList = [
   },
   {
     word: "しょくどう",
-    meaning: "ထမင်းစားဆောင်",
+    meaning: "ထမင်းစားဆောင် ။ စားသောက်ဆိုင် ။ ကန်တင်း",
     ch: 3,
   },
   {
@@ -1502,7 +1502,7 @@ export const list: VocabsList = [
   },
   {
     word: "ロビー",
-    meaning: "နားရုံခန်း",
+    meaning: "နားနေခန်း",
     ch: 3,
   },
   {
@@ -1522,12 +1522,12 @@ export const list: VocabsList = [
   },
   {
     word: "エレベーター",
-    meaning: "တက်လှေကား",
+    meaning: "ဓာက်လှေကား",
     ch: 3,
   },
   {
     word: "エスカレーター",
-    meaning: "စက်လှေကား",
+    meaning: "ရွှေ့လျားစက်လှေကား",
     ch: 3,
   },
   {
@@ -1537,7 +1537,7 @@ export const list: VocabsList = [
   },
   {
     word: "でんわ",
-    meaning: "တယ်လီဖုန်း",
+    meaning: "တယ်လီဖုန်း, ဖုန်း၊ ဖုန်းလာ၍ခေါ်ပေးချင်း",
     ch: 3,
   },
   {

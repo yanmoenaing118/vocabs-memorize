@@ -379,6 +379,8 @@ export default function Vocabs({
                 )}
               </div> */}
             </div>
+
+            <span className="absolute bottom-[10%] left-4"> {modalState.currentIndex + 1} / {list.length}</span>
           </div>
         </div>
       )}
