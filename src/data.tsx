@@ -1205,12 +1205,12 @@ export const list: VocabsList = [
   },
   {
     word: "これ",
-    meaning: "ဒီ",
+    meaning: "ဒီဟာ",
     ch: 2,
   },
   {
     word: "それ",
-    meaning: "အဲဒီ",
+    meaning: "အဲဒီဟာ",
     ch: 2,
   },
   {
