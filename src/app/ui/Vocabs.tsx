@@ -1,9 +1,12 @@
+// Updated Vocabs.tsx (with minor adjustments for consistency)
+// Note: The main fix is in Pagination, but ensuring props are passed correctly as numbers.
+
 "use client";
 
 import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { VocabsList, Vocab } from "../lib/definitions";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import _, { replace } from "lodash";
 import {
   Cross1Icon,
@@ -57,15 +60,45 @@ export default function Vocabs({
     showMeaning: true,
   });
 
+  const setRef = useRef(set);
+  useEffect(() => {
+    setRef.current = set;
+  }, [set]);
+
   useEffect(() => {
     if (!query.has("ch")) {
       router.replace(`${pathname}?ch=1`);
     }
   }, []);
 
-  // Keyboard navigation for modal
+  const closeModal = useCallback(() => {
+    setModalState({
+      isOpen: false,
+      currentIndex: 0,
+      selectedVocab: null,
+    });
+  }, []);
+
+  const navigateModal = useCallback((direction: "prev" | "next") => {
+    setImageLoaded(false); // Reset image loaded state when navigating
+    setModalState((prev) => {
+      const len = setRef.current.length;
+      const newIndex =
+        direction === "next"
+          ? (prev.currentIndex + 1) % len
+          : (prev.currentIndex - 1 + len) % len;
+      return {
+        ...prev,
+        currentIndex: newIndex,
+        selectedVocab: setRef.current[newIndex],
+      };
+    });
+  }, []);
+
+  const handleKeyDownRef = useRef<any>(null);
+
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    handleKeyDownRef.current= (e: KeyboardEvent) => {
       if (!modalState.isOpen) return;
 
       switch (e.key) {
@@ -82,10 +115,14 @@ export default function Vocabs({
           break;
       }
     };
+  }, [modalState.isOpen, closeModal, navigateModal]);
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [modalState.isOpen]);
+  useEffect(() => {
+    const listener = (e: KeyboardEvent) => handleKeyDownRef.current?.(e);
+    document.addEventListener("keydown", listener);
+    return () => document.removeEventListener("keydown", listener);
+  }, []);
+
   const goToPage = (page: number) => {
     const params = new URLSearchParams(query.toString());
     params.set("offset", `${page}`);
@@ -111,34 +148,11 @@ export default function Vocabs({
     });
   };
 
-  const closeModal = () => {
-    setModalState({
-      isOpen: false,
-      currentIndex: 0,
-      selectedVocab: null,
-    });
-  };
-
-  const navigateModal = (direction: "prev" | "next") => {
-    const newIndex =
-      direction === "next"
-        ? (modalState.currentIndex + 1) % set.length
-        : (modalState.currentIndex - 1 + set.length) % set.length;
-
-    setImageLoaded(false); // Reset image loaded state when navigating
-    setModalState({
-      ...modalState,
-      currentIndex: newIndex,
-      selectedVocab: set[newIndex],
-    });
-  };
-
   const handleModalBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
   };
-
   return (
     <>
       <div className="sticky top-4 flex w-full justify-between mb-4">
@@ -219,9 +233,10 @@ export default function Vocabs({
       </div>
       <div className="sticky bottom-4 flex justify-end mt-4">
         <Pagination
-          currentPage={query.get("offset")?.toString() || 0}
+          // Pass as numbers for consistency
+          currentPage={Number(query.get("offset") || 0)}
           totalItems={totalVocabs}
-          itemsPerPage={query.get("count")?.toString() || 6}
+          itemsPerPage={Number(query.get("count") || 6)}
           onNext={goToPage}
           onPrev={goToPage}
         />
@@ -278,9 +293,7 @@ export default function Vocabs({
                   }
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                 />
-                <span className="text-sm font-medium text-gray-700">
-                  Word
-                </span>
+                <span className="text-sm font-medium text-gray-700">Word</span>
               </label>
 
               <label className="flex items-center gap-2 bg-white bg-opacity-90 px-3 py-2 rounded-lg shadow-sm">
@@ -349,10 +362,13 @@ export default function Vocabs({
                 </div>
               )}
 
-              <div className={"flex-1 flex items-center justify-center flex-col mt-7 px-4"}
-              style={{
-                height: modalState.selectedVocab.image_url ? "auto" : "100%",
-              }}
+              <div
+                className={
+                  "flex-1 flex items-center justify-center flex-col mt-7 px-4"
+                }
+                style={{
+                  height: modalState.selectedVocab.image_url ? "auto" : "100%",
+                }}
               >
                 {/* Word */}
                 {modalVisibility.showWord && (
@@ -380,7 +396,10 @@ export default function Vocabs({
               </div> */}
             </div>
 
-            <span className="absolute bottom-[10%] left-4"> {modalState.currentIndex + 1} / {list.length}</span>
+            <span className="absolute bottom-[10%] left-4">
+              {" "}
+              {modalState.currentIndex + 1} / {list.length}
+            </span>
           </div>
         </div>
       )}
