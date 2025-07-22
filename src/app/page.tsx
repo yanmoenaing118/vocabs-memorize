@@ -20,6 +20,7 @@ export default function Home({
   const { count, offset, ch} = searchParams;
   return (
     <main>
+      <img src="/boahancock2.png" alt="Boa hancock" className="fixed top-0 left-0 w-full h-[100vh] object-cover -z-10" />
       <Navbar />
       <Container>
         <div className="grid grid-cols-[1fr] md:grid-cols-[120px,1fr] gap-12">

@@ -218,12 +218,15 @@ export default function Vocabs({
                 </h1>
                 <p
                   className={clsx(
-                    "text-base lg:text-2xl text-green-300  transition-opacity",
+                    "text-md lg:text-2xl text-green-300  transition-opacity",
                     {
                       "opacity-1": visibility.showMeaning,
                       "opacity-0": !visibility.showMeaning,
                     }
                   )}
+                  style={{
+                    textShadow: "1px 1px 2px gray"
+                  }}
                 >
                   {item.meaning}
                 </p>
