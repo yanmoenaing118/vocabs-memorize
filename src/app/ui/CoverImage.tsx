@@ -14,7 +14,7 @@ export default function CoverImage() {
       <img
         src="/boahancock2.png"
         alt="Boa hancock"
-        className="fixed top-0 left-0 w-[350vw] md:w-full h-[100vh]  object-cover object-left-top -z-10  animate-slide-horizontal"
+        className="fixed top-0 left-0 min-w-[350vw] md:min-w-full h-[100vh]  object-cover object-left-top -z-10  animate-slide-horizontal"
       />
 
       <style jsx>{`
