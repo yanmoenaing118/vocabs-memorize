@@ -199,12 +199,12 @@ export default function Vocabs({
             {set.map((item, index) => (
               <div
                 key={item.word + item.ch}
-                className="glass-card bg-white bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg cursor-pointer hover:bg-opacity-30 transition-all"
+                className="glass-card bg-black bg-opacity-20 p-4 md:p-8 rounded-lg shadow-lg cursor-pointer hover:bg-opacity-30 transition-all"
                 onClick={() => openModal(item, index)}
               >
                 <h1
                   className={clsx(
-                    "text-2xl font-light mb-4 text-black transition-opacity",
+                    "text-2xl font-light mb-4 text-white transition-opacity ",
                     {
                       "opacity-1": visibility.showWord,
                       "opacity-0": !visibility.showWord,
@@ -215,7 +215,7 @@ export default function Vocabs({
                 </h1>
                 <p
                   className={clsx(
-                    "text-sm sm:text-sm md:text-base lg:text-2xl text-gray-200  transition-opacity",
+                    "text-sm sm:text-sm md:text-base lg:text-2xl text-green-300  transition-opacity",
                     {
                       "opacity-1": visibility.showMeaning,
                       "opacity-0": !visibility.showMeaning,

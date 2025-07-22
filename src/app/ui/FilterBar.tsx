@@ -3,6 +3,7 @@ import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { Select, SelectItem } from "@/app/ui/utils/Select";
+import clsx from "clsx";
 
 const navigateOptions: NavigateOptions = {
   scroll: false,
@@ -40,16 +41,9 @@ export default function FilterBar() {
   return (
     <div className="sticky top-4">
       <div className="flex flex-col justify-between gap-8">
-        <div className="flex gap-3">
-          <button
-            className="bg-gray-100 block w-full hover:bg-gray-200 text-gray-600 font-bold py-2 px-2 rounded text-sm"
-            onClick={clearFilter}
-          >
-            Clear
-          </button>
-        </div>
+        
 
-        <div>
+        <div className="mt-16">
           <ItemsPerPageSelector
             value={Number(searchParams.get("count")?.toString()) || 6}
             onSelected={getItemsPerPage}
@@ -61,6 +55,15 @@ export default function FilterBar() {
           active={searchParams.get("ch")?.toString() || 1}
           onSelect={(ch: string) => getByChapters(ch)}
         />
+
+        <div className="flex gap-3">
+          <button
+            className="bg-gray-100 block w-full hover:bg-gray-200 text-gray-600 font-bold py-2 px-2 rounded text-sm"
+            onClick={clearFilter}
+          >
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -78,7 +81,7 @@ const Chapters = ({ active, onSelect }: any) => {
             <button
               onClick={() => onSelect(_)}
               key={_}
-              className={active == _ ? "text-black" : "text-white"}
+              className={active == _ ? "text-green-500 underline font-bold" : "text-white"}
             >
               {_}
             </button>
@@ -93,9 +96,9 @@ const ItemsPerPageSelector = ({ value, onSelected }: any) => {
     <>
       <div className="text-white underline mb-1">Items per page</div>
       <Select value={value} width="120px" onValueChange={onSelected}>
-        {[-1, 3, 6, 9, 12, 15, 18, 21].map((no) => (
+        {[-1, 3, 6, 9, 12, 15, 18, 21].map((no, index) => (
           <SelectItem value={no} key={no}>
-            <span className="text-black px-2.5 text-sm">{no == -1 ? "All" : no}</span>
+            <span className={clsx(" px-2.5 text-sm", index === 0 ? "text-white" : "text-black")}>{no == -1 ? "All" : no}</span>
           </SelectItem>
         ))}
       </Select>

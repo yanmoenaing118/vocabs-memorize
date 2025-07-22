@@ -11,7 +11,7 @@ export const Select = forwardRef(
     return (
       <SelectPrimitive.Root {...props}>
         <SelectPrimitive.Trigger
-          className="flex gap-2 p-1  items-center min-w-full w-full justify-between border shadow-sm"
+          className="flex gap-2 p-1  items-center min-w-full w-full justify-between border shadow-sm bg-white bg-opacity-40"
           ref={forwardedRef}
         >
           <SelectPrimitive.Value className="text-white" />
