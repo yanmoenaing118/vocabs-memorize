@@ -8,6 +8,7 @@ import { PropVocabSearchQuery } from "./lib/definitions";
 import { unstable_noStore } from "next/cache";
 import { Suspense } from "react";
 import LoadingSkeleton from "./ui/LoadingSkeleton";
+import CoverImage from "./ui/CoverImage";
 
 export const dynamic = "force-dynamic";
 
@@ -17,10 +18,10 @@ export default function Home({
   searchParams: PropVocabSearchQuery;
 }) {
   unstable_noStore();
-  const { count, offset, ch} = searchParams;
+  const { count, offset, ch } = searchParams;
   return (
     <main>
-      <img src="/boahancock2.png" alt="Boa hancock" className="fixed top-0 left-0 w-full h-[100vh] object-cover -z-10 object-left-top" />
+      <CoverImage />
       <Navbar />
       <Container>
         <div className="grid grid-cols-[1fr] md:grid-cols-[120px,1fr] gap-12">
@@ -28,7 +29,10 @@ export default function Home({
             <FilterBar />
           </div>
           <div>
-            <Suspense key={`${count}${offset || ""}${ch}`} fallback={<LoadingSkeleton />}>
+            <Suspense
+              key={`${count}${offset || ""}${ch}`}
+              fallback={<LoadingSkeleton />}
+            >
               <VocabList query={searchParams} />
             </Suspense>
           </div>

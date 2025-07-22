@@ -58,7 +58,7 @@ export default function FilterBar() {
 
         <div className="flex gap-3">
           <button
-            className="bg-gray-100 block w-full hover:bg-gray-200 text-gray-600 font-bold py-2 px-2 rounded text-sm"
+            className="bg-gray-100 bg-opacity-60 block w-full hover:bg-gray-200 text-gray-600 font-bold py-2 px-2 rounded text-sm"
             onClick={clearFilter}
           >
             Reset
