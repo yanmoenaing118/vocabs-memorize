@@ -218,7 +218,7 @@ export default function Vocabs({
                 </h1>
                 <p
                   className={clsx(
-                    "text-md lg:text-2xl text-green-300  transition-opacity",
+                    "text-lg lg:text-2xl text-green-300  transition-opacity",
                     {
                       "opacity-1": visibility.showMeaning,
                       "opacity-0": !visibility.showMeaning,
