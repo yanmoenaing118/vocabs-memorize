@@ -199,7 +199,7 @@ export default function Vocabs({
             {set.map((item, index) => (
               <div
                 key={item.word + item.ch}
-                className="glass-card bg-white bg-opacity-15 p-4 md:p-8 rounded-lg shadow cursor-pointer hover:bg-opacity-40 transition-all"
+                className="glass-card bg-black bg-opacity-3 p-4 md:p-8 rounded-lg shadow cursor-pointer hover:scale-105 origin-center transition-all ease-in-out"
                 onClick={() => openModal(item, index)}
               >
                 <h1
