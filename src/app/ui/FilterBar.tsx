@@ -19,17 +19,11 @@ export default function FilterBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-  const getQueryString = (key: string, value: string) => {
-    const parmas = new URLSearchParams(searchParams.toString());
-    if (key && value) {
-      parmas.set(key, value);
-    }
-    return `${pathname}?${parmas.toString()}`;
-  };
-
   const getByChapters = (ch: string) => {
-    const queryString = getQueryString("ch", ch);
-    replace(queryString, navigateOptions);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("ch", ch);
+    params.set("offset", "0");
+    replace(`${pathname}?${params.toString()}`, navigateOptions);
   };
 
   const clearFilter = () => {
@@ -37,8 +31,10 @@ export default function FilterBar() {
   };
 
   const getItemsPerPage = (value: string) => {
-    const queryString = getQueryString("count", value);
-    replace(queryString, navigateOptions);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("count", value);
+    params.set("offset", "0");
+    replace(`${pathname}?${params.toString()}`, navigateOptions);
   };
 
   return (
