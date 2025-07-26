@@ -24,7 +24,7 @@ export default function Home({
       <CoverImage />
       <Navbar />
       <Container>
-        <div className="grid grid-cols-[1fr] md:grid-cols-[120px,1fr] gap-12">
+        <div className="grid grid-cols-[1fr] md:grid-cols-[220px,1fr] gap-10">
           <div className="min-h-screen hidden md:block">
             <FilterBar />
           </div>
