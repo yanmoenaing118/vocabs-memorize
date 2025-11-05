@@ -21,8 +21,7 @@ export default function Home({
   const { count, offset, ch } = searchParams;
   return (
     <main>
-      <img src="https://i.imgur.com/Bwqu0qT.png" alt="" />
-      {/* <CoverImage />
+      <CoverImage />
       <Navbar />
       <Container>
         <div className="grid grid-cols-[1fr] md:grid-cols-[220px,1fr] gap-10">
@@ -38,7 +37,7 @@ export default function Home({
             </Suspense>
           </div>
         </div>
-      </Container> */}
+      </Container>
     </main>
   );
 }
